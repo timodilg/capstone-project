@@ -22,5 +22,4 @@ const NavStyling = styled.nav`
   display: grid;
   grid-auto-flow: column;
   gap: 1px;
-  text-decoration-line: none;
 `
