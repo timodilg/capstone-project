@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import styled from 'styled-components/macro'
+import Todo from './pages/Todo'
+import Timer from './pages/Timer'
+import Settings from './pages/Settings'
+import Navigation from './Navigation'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <AppGrid>
+        <Switch>
+          <Route path="/todo">
+            <Todo />
+          </Route>
+          <Route path="/timer">
+            <Timer />
+          </Route>
+          <Route path="/settings">
+            <Settings />
+          </Route>
+        </Switch>
+        <Navigation />
+      </AppGrid>
+    </Router>
+  )
 }
 
-export default App;
+const AppGrid = styled.div`
+  display: grid;
+  grid-template-rows: auto 48px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+`
