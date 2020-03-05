@@ -15,7 +15,13 @@ ul {
 
 li {
   margin-top: 10px;
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 5px;
+  background-color: rgb(248, 248, 248);
+  height: 33px;
+  padding-top: 10px;
 }
+
 span {
   margin-left: 10px;
 }
@@ -45,3 +51,18 @@ span {
   border-radius: 0 5px 5px 0;
   background-color: lightgray;
 }
+
+input[type='checkbox'] + label::before {
+  width: 15px;
+  height: 15px;
+  background-color: #000;
+  display: block;
+  content: '';
+  float: left;
+  margin-right: 5px;
+}
+
+/* .todo-checkbox {
+  
+  background-color: hotpink;
+} */

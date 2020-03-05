@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles.css'
 
 export default function List({ todos, onDelete }) {
   return (
@@ -6,8 +7,8 @@ export default function List({ todos, onDelete }) {
       {todos.map(todo => (
         <li key={todo.id}>
           {/* <span onClick={() => onDelete(todo.id)}> */}
-          <input type="checkbox" />
-          <span>{todo.name}</span>
+          <input type="checkbox" className="todo-checkbox" />
+          <span className="todo-text">{todo.name}</span>
           {/* </span> */}
         </li>
       ))}
