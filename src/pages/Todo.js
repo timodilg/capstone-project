@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import '../styles.css'
 import Form from '../components/Form'
 import List from '../components/List'
+import ButtonTimer from '../components/ButtonTimer'
 
 export default function Todo() {
   const [todos, setTodos] = useState([])
@@ -10,6 +11,7 @@ export default function Todo() {
     <div className="App">
       <Form onSubmit={addTodo} />
       <List todos={todos} onDelete={deleteTodo} />
+      <ButtonTimer />
     </div>
   )
 

@@ -1,9 +1,9 @@
 .App {
   /* text-align: center; */
   margin: 40px auto;
-  /* display: grid; */
-  /* gap: 60px; */
   font-size: 20px;
+  display: grid;
+  grid-template-rows: 48px auto 100px;
 }
 ul {
   list-style: none;
@@ -38,7 +38,6 @@ span {
 }
 
 .form-input {
-  height: 48px;
   font-size: 20px;
   border-radius: 5px 0 0 5px;
   border: 1px solid lightgray;

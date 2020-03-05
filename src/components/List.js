@@ -1,9 +1,10 @@
 import React from 'react'
 import '../styles.css'
+import styled from 'styled-components/macro'
 
 export default function List({ todos, onDelete }) {
   return (
-    <ul>
+    <UlStyled>
       {todos.map(todo => (
         <li key={todo.id}>
           {/* <span onClick={() => onDelete(todo.id)}> */}
@@ -12,14 +13,12 @@ export default function List({ todos, onDelete }) {
           {/* </span> */}
         </li>
       ))}
-    </ul>
+    </UlStyled>
   )
 }
 
-{
-  /* <label class="todo">
-    <input type="checkbox" ${todo.done ? 'checked' : ''}> <span>${
-      todo.name
-    }</span>
-  </label> */
-}
+const UlStyled = styled.ul`
+  overflow-y: auto;
+  align-content: flex-start;
+`
+// Hier weitermachen: Die Liste der Todos soll scrollbar sein sodass das input feld und der 25 button immer sichtbar sind
