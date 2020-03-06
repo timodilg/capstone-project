@@ -32,11 +32,6 @@ const AppGrid = styled.div`
   grid-template-rows: auto 48px;
   margin: 0 auto;
   max-width: 400px;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
   height: 100vh;
   font-family: sans-serif;
 `

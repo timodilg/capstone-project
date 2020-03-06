@@ -8,7 +8,7 @@ export default function List({ todos, onDelete }) {
         // <span onClick={setTimeout(() => onDelete(todo.id), 3000)}>
         // onClick={() => onDelete(todo.id)}
         <label>
-          <li key={todo.id} className="todo">
+          <li key={todo.id}>
             <input type="checkbox" />
             <span>{todo.name}</span>
           </li>
@@ -16,12 +16,6 @@ export default function List({ todos, onDelete }) {
       ))}
     </UlStyled>
   )
-
-  function handleCheckbox {
-
-
-    
-  }
 }
 
 const UlStyled = styled.ul`
@@ -36,16 +30,23 @@ const UlStyled = styled.ul`
     border: 1px solid rgb(207, 207, 207);
     border-radius: 5px;
     background-color: rgb(248, 248, 248);
-    height: 33px;
-    padding-top: 10px;
+    height: 56px;
+    line-height: 56px;
+    padding-left: 15px;
+    /* padding-top: 10px; */
 
-    label {
+    span {
       margin-left: 10px;
     }
+
+    input[type='checkbox'] {
+      transform: scale(1);
+    }
+
     > input:checked + span {
       color: lightgray;
       text-decoration: line-through;
-      background-color: rgb(58, 248, 248);
+      background-color: rgb(258, 248, 248);
     }
   }
 `

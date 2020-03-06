@@ -13,7 +13,7 @@ export default function Form({ onSubmit }) {
         value={todoText}
         onChange={updateInputText}
       />
-      <button>+</button>
+      <button> + </button>
     </FormStyled>
   )
 
@@ -32,11 +32,11 @@ export default function Form({ onSubmit }) {
 }
 
 const FormStyled = styled.form`
-  display: grid;
-  grid-template-columns: auto 48px;
+  display: flex;
+  height: 58px;
 
   input {
-    font-size: 20px;
+    font-size: 22px;
     border-radius: 5px 0 0 5px;
     border: 1px solid lightgray;
     padding-left: 10px;
