@@ -5,7 +5,6 @@ import Todo from './pages/Todo'
 import Timer from './pages/Timer'
 import Settings from './pages/Settings'
 import Navigation from './Navigation'
-import './styles.css'
 
 export default function App() {
   return (

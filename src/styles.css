@@ -1,57 +1,57 @@
-.App {
-  /* text-align: center; */
+/* .App {
   margin: 40px auto;
   font-size: 20px;
   display: grid;
   grid-template-rows: 48px auto 100px;
-}
-ul {
+} */
+
+/* ul {
   list-style: none;
   padding: 0;
-}
-.done {
+} */
+/* .done {
   text-decoration: line-through;
-}
+} */
 
-li {
+/* li {
   margin-top: 10px;
   border: 1px solid rgb(207, 207, 207);
   border-radius: 5px;
   background-color: rgb(248, 248, 248);
   height: 33px;
   padding-top: 10px;
-}
+} */
 
-span {
+/* span {
   margin-left: 10px;
-}
+} */
 
-.delete-btn {
+/* .delete-btn {
   font-size: 0.7rem;
   color: #999;
   cursor: pointer;
-}
+} */
 
-.form {
+/* .form {
   display: grid;
   grid-template-columns: auto 48px;
-}
+} */
 
-.form-input {
+/* .form-input {
   font-size: 20px;
   border-radius: 5px 0 0 5px;
   border: 1px solid lightgray;
   padding-left: 10px;
-}
+} */
 
-.form-btn {
+/* .form-btn {
   font-size: 1.5em;
   border: none;
   border-radius: 0 5px 5px 0;
   background-color: lightgray;
-}
+} */
 
-input[type='checkbox'] + label::before {
+/* input[type='checkbox'] + label::before {
   width: 15px;
   height: 15px;
   background-color: #000;
@@ -59,7 +59,7 @@ input[type='checkbox'] + label::before {
   content: '';
   float: left;
   margin-right: 5px;
-}
+} */
 
 /* .todo-checkbox {
   
