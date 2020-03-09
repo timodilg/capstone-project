@@ -2,12 +2,16 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 export default function List({ todos, onDelete }) {
+  function onToggle(todo) {
+    return () => {
+      setTimeout(() => onDelete(todo.id), 1000)
+    }
+  }
+
   return (
     <UlStyled>
       {todos.map(todo => (
-        // <span onClick={setTimeout(() => onDelete(todo.id), 3000)}>
-        // onClick={() => onDelete(todo.id)}
-        <label>
+        <label onClick={onToggle(todo)}>
           <li key={todo.id}>
             <input type="checkbox" />
             <span>{todo.name}</span>
@@ -33,7 +37,6 @@ const UlStyled = styled.ul`
     height: 56px;
     line-height: 56px;
     padding-left: 15px;
-    /* padding-top: 10px; */
 
     span {
       margin-left: 10px;
