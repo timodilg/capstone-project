@@ -1,18 +1,18 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default function Navigation() {
   return (
     <NavStyling>
       <button>
-        <Link to="/todo">ToDo</Link>
+        <NavLink to="/todo">ToDo</NavLink>
       </button>
       <button>
-        <Link to="/timer">Timer</Link>
+        <NavLink to="/timer">Timer</NavLink>
       </button>
       <button>
-        <Link to="/settings">Settings</Link>
+        <NavLink to="/settings">Settings</NavLink>
       </button>
     </NavStyling>
   )
