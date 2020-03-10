@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components/macro'
 import moment from 'moment'
-import * as timerStates from '../../timerStates'
+import * as timerStates from '../components/timerStates'
+import TimerDisplay from '../components/TimerDisplay'
 
 class Timer extends Component {
   constructor() {
@@ -16,6 +17,7 @@ class Timer extends Component {
 
     this.setBaseTime = this.setBaseTime.bind(this)
     this.startTimer = this.startTimer.bind(this)
+    this.stopTimer = this.stopTimer.bind(this)
     this.reduceTimer = this.reduceTimer.bind(this)
   }
 
@@ -33,8 +35,20 @@ class Timer extends Component {
     })
   }
 
+  stopTimer() {
+    if (this.state.timer) {
+      clearInterval(this.state.timer)
+    }
+
+    this.setState({
+      timerState: timerStates.NOT_SET,
+      timer: null,
+      currentTime: moment.duration(this.state.baseTime),
+    })
+  }
+
   reduceTimer() {
-    const newTime = moment.duration(this.state.currentTime())
+    const newTime = moment.duration(this.state.currentTime)
     newTime.subtract(1, 'second')
 
     this.setState({
@@ -42,14 +56,25 @@ class Timer extends Component {
     })
   }
 
+  completeTimer() {
+    if (this.state.timer) {
+      clearInterval(this.state.timer)
+    }
+
+    this.setState({
+      timerState: timerStates.COMPLETE,
+      timer: null,
+    })
+  }
+
   render() {
     return (
       <TimerStyled>
-        <h2>25:00</h2>
+        <TimerDisplay />
         <div>
-          <button>Start</button>
-          <button>Pause</button>
-          <button>Stop</button>
+          <button onClick={this.startTimer}>Start</button>
+          <button onClick={this.stopTimer}>Pause</button>
+          <button onClick={this.stopTimer}>Stop</button>
         </div>
       </TimerStyled>
     )
@@ -67,7 +92,7 @@ const TimerStyled = styled.div`
   } */
 
   button {
-    transform: scale(1.5);
+    transform: scale(1);
   }
 `
 export default Timer
