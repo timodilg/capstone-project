@@ -1,21 +1,19 @@
-
 import React, { Component } from 'react'
 import styled from 'styled-components/macro'
 import moment from 'moment'
 import * as timerStates from '../components/timerStates'
 import TimerDisplay from '../components/TimerDisplay'
 
- class Timer extends Component {
-   constructor() {
-     super()
+class Timer extends Component {
+  constructor() {
+    super()
 
-     this.state = {
-       currentTime: moment.duration(25, 'minutes'),
-       baseTime: moment.duration(25, 'minutes'),
-       timerState: timerStates.NOT_SET,
-       timer: null,
-     }
-
+    this.state = {
+      currentTime: moment.duration(25, 'minutes'),
+      baseTime: moment.duration(25, 'minutes'),
+      timerState: timerStates.NOT_SET,
+      timer: null,
+    }
 
     this.setBaseTime = this.setBaseTime.bind(this)
     this.startTimer = this.startTimer.bind(this)
@@ -23,23 +21,19 @@ import TimerDisplay from '../components/TimerDisplay'
     this.reduceTimer = this.reduceTimer.bind(this)
   }
 
+  setBaseTime(newBaseTime) {
+    this.setState({
+      baseTime: newBaseTime,
+      currentTime: newBaseTime,
+    })
+  }
 
-
-
-   setBaseTime(newBaseTime) {
-     this.setState({
-       baseTime: newBaseTime,
-       currentTime: newBaseTime,
-     })
-   }
-
-   startTimer() {
-     this.setState({
-       timerState: timerStates.RUNNING,
-       timer: setInterval(this.reduceTimer, 1000),
-     })
-   }
-
+  startTimer() {
+    this.setState({
+      timerState: timerStates.RUNNING,
+      timer: setInterval(this.reduceTimer, 1000),
+    })
+  }
 
   stopTimer() {
     if (this.state.timer) {
@@ -57,14 +51,10 @@ import TimerDisplay from '../components/TimerDisplay'
     const newTime = moment.duration(this.state.currentTime)
     newTime.subtract(1, 'second')
 
-
-
-
-     this.setState({
-       currentTime: newTime,
-     })
-   }
-
+    this.setState({
+      currentTime: newTime,
+    })
+  }
 
   completeTimer() {
     if (this.state.timer) {
@@ -90,20 +80,10 @@ import TimerDisplay from '../components/TimerDisplay'
   }
 }
 
- const TimerStyled = styled.div`
-   margin: 200px auto;
-   font-size: 20px;
-   text-align: center;
-
-   /* div {
-     display: flex;
-     justify-content: space-between;
-   } */
-
-
-  button {
-    transform: scale(1);
-  }
+const TimerStyled = styled.div`
+  margin: 200px auto;
+  font-size: 20px;
+  text-align: center;
 `
-export default Timer
 
+export default Timer
