@@ -1,32 +1,18 @@
 import React from 'react'
-import * as timerStates from './timerStates'
 
-const leftPad = val => {
-  if (val < 10) return `0${val}`
+const leftZeroNumber = value => {
+  if (value < 10) return `0${value}`
 
-  return `${val}`
+  return `${value}`
 }
 
 const TimerDisplay = props => (
-  <span>
-    <div>
-      {props.timerState === timerStates.COMPLETE && (
-        <iframe
-          className="center-block youtube-responsive-width"
-          height="315"
-          src="https://www.youtube.com/embed/nrAgK0S9hx4?autoplay=1&start=104&controls=0&showinfo=0"
-        ></iframe>
-      )}
-    </div>
-    <div>
-      <h2>
-        {leftPad(this.state.currentTime.get('minutes'))}:
-        {leftPad(this.state.currentTime.get('seconds'))}
-      </h2>
-    </div>
-  </span>
+  <div>
+    <h2>
+      {leftZeroNumber(props.currentTime.get('minutes'))}:
+      {leftZeroNumber(props.currentTime.get('seconds'))}
+    </h2>
+  </div>
 )
 
 export default TimerDisplay
-
-// xx < 10 ? '0'xx : xx

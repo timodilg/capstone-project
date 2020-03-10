@@ -70,7 +70,7 @@ class Timer extends Component {
   render() {
     return (
       <TimerStyled>
-        <TimerDisplay />
+        <TimerDisplay currentTime={this.state.currentTime} />
         <div>
           <button onClick={this.startTimer}>Start</button>
           <button onClick={this.stopTimer}>Pause</button>
