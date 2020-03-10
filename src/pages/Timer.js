@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components/macro'
 import moment from 'moment'
-import * as timerStates from '../components/timerStates'
+// import * as timerStates from '../components/timerStates'
 
 class Timer extends Component {
   constructor() {
