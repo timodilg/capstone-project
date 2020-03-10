@@ -73,7 +73,6 @@ class Timer extends Component {
         <TimerDisplay currentTime={this.state.currentTime} />
         <div>
           <button onClick={this.startTimer}>Start</button>
-          <button onClick={this.stopTimer}>Pause</button>
           <button onClick={this.stopTimer}>Stop</button>
         </div>
       </TimerStyled>
