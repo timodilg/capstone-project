@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 import moment from 'moment'
 import * as timerStates from '../components/timerStates'
 import TimerDisplay from '../components/TimerDisplay'
-// import Sound from '../components/Sound'
+import Sound from '../components/Sound'
 
 class Timer extends Component {
   constructor() {
@@ -76,7 +76,7 @@ class Timer extends Component {
           <button onClick={this.startTimer}>Start</button>
           <button onClick={this.stopTimer}>Stop</button>
         </div>
-        {/* <Sound /> */}
+        <Sound />
       </TimerStyled>
     )
   }
