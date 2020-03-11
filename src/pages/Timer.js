@@ -68,6 +68,11 @@ class Timer extends Component {
     })
   }
 
+  // playAudio() {
+  //   const whitenoise = require('../sounds/whitenoise.mp3')
+  //   return <audio src={whitenoise} autoPlay />
+  // }
+
   render() {
     return (
       <TimerStyled>
