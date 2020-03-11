@@ -8,7 +8,7 @@ export default function Form({ onSubmit }) {
     <FormStyled onSubmit={handleSubmit}>
       <input
         type="text"
-        name="name"
+        name="todo-input"
         placeholder="Add task"
         value={todoText}
         onChange={updateInputText}
