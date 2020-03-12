@@ -7,18 +7,15 @@ export default function ButtonTimer() {
 }
 
 const LinkStyled = styled(Link)`
-  display: inline-block;
   margin: 0 auto;
   width: 100px;
+  height: 80px;
   border-radius: 50%;
-  background-color: rgba(44, 115, 94, 0.71);
+  background-color: #326f6f;
   font-size: 4rem;
   text-decoration-line: none;
   color: white;
   text-align: center;
   padding-top: 20px;
-  box-shadow: 2px 2px 4px 0px rgba(10, 28, 26, 1);
+  box-shadow: 3px 2px 5px 0px #112626;
 `
-// const Link = styled.link`
-//   text-decoration: none;
-// `

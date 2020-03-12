@@ -8,8 +8,9 @@ export default function Form({ onSubmit }) {
     <FormStyled onSubmit={handleSubmit}>
       <input
         type="text"
+
         name="todo-input"
-        placeholder="Add task"
+        placeholder="What are your tasks for today?"
         value={todoText}
         onChange={updateInputText}
       />
@@ -34,12 +35,19 @@ export default function Form({ onSubmit }) {
 const FormStyled = styled.form`
   display: flex;
   height: 58px;
+  font-family: 'Josefin Sans', sans-serif;
 
   input {
     font-size: 22px;
     border-radius: 5px 0 0 5px;
     border: 1px solid lightgray;
     padding-left: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    flex-grow: 1;
+
+    ::placeholder {
+      font-size: 17px;
+    }
   }
 
   button {
@@ -47,5 +55,7 @@ const FormStyled = styled.form`
     border: none;
     border-radius: 0 5px 5px 0;
     background-color: lightgray;
+    font-family: 'Josefin Sans', sans-serif;
+    width: 40px;
   }
 `
