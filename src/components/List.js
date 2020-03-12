@@ -25,6 +25,9 @@ export default function List({ todos, onDelete }) {
 const UlStyled = styled.ul`
   list-style: none;
   padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  height: 264px;
+  overflow: auto;
 
   /* align-content: flex-start; */
   /* // Hier weitermachen: Die Liste der Todos soll scrollbar sein sodass das input feld und der 25 button immer sichtbar sind */
@@ -33,7 +36,7 @@ const UlStyled = styled.ul`
     margin-top: 10px;
     border: 1px solid rgb(207, 207, 207);
     border-radius: 5px;
-    background-color: rgb(248, 248, 248);
+    /* background-color: rgb(248, 248, 248); */
     height: 56px;
     line-height: 56px;
     padding-left: 15px;

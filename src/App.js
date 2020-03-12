@@ -33,5 +33,6 @@ const AppGrid = styled.div`
   margin: 0 auto;
   max-width: 400px;
   height: 100vh;
-  font-family: sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
+}
 `
