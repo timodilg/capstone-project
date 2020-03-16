@@ -5,12 +5,12 @@ import Greeting from '../components/Greeting'
 import ButtonTimer from '../components/ButtonTimer'
 import styled from 'styled-components/macro'
 
-export default function Todo() {
+export default function Todo({ name }) {
   const [todos, setTodos] = useState([])
 
   return (
     <TodoStyled>
-      <Greeting />
+      <Greeting name={name} />
       <Form onSubmit={addTodo} />
       <List todos={todos} onDelete={deleteTodo} />
       <ButtonTimer />
