@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import SettingsNav from '../components/SettingsNav'
 
 export default function Settings({ name, setName, interval, setInterval }) {
   return (
     <SettingsStyled>
+      <SettingsNav />
       <h1>Settings</h1>
       <form onSubmit={handleSubmit}>
         <p>Name</p>
@@ -44,6 +46,11 @@ export default function Settings({ name, setName, interval, setInterval }) {
 const SettingsStyled = styled.div`
   font-family: 'Josefin Sans', sans-serif;
   margin: 40px 20px;
+
+  h1 {
+    margin-top: 30px;
+  }
+
   form {
     display: grid;
     margin-top: 20px;

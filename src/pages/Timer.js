@@ -1,9 +1,9 @@
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components/macro'
 import moment from 'moment'
 import * as timerStates from '../components/timerStates'
 import TimerDisplay from '../components/TimerDisplay'
-import Sound from '../components/Sound'
+// import Sound from '../components/Sound'
 import TimerIcons from '../components/TimerIcons'
 import TimerFocusTask from '../components/TimerFocusTask'
 
