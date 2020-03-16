@@ -15,23 +15,17 @@ export default function Settings({ name, setName, interval, setInterval }) {
           value={name}
           onChange={e => setName(e.target.value)}
         ></input>
-      </form>
 
-      <form onSubmit={handleSubmit}>
         <p>Timer interval</p>
         <input
           type="number"
           value={interval}
           onChange={e => setInterval(e.target.value)}
         ></input>
-      </form>
 
-      <form>
         <p>Short break</p>
         <input type="number" placeholder="5"></input>
-      </form>
 
-      <form>
         <p>Long break</p>
         <input type="number" placeholder="30"></input>
       </form>
@@ -57,7 +51,7 @@ const SettingsStyled = styled.div`
 
     p {
       font-size: 20px;
-      margin-top: 0px;
+      margin-top: 20px;
       margin-bottom: 5px;
     }
 
@@ -68,10 +62,6 @@ const SettingsStyled = styled.div`
       font-family: 'Josefin Sans', sans-serif;
       font-size: 22px;
       padding-left: 10px;
-
-      ::placeholder {
-        justify-content: center;
-      }
     }
   }
 `
