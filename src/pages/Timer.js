@@ -3,20 +3,25 @@ import styled from 'styled-components/macro'
 import moment from 'moment'
 import * as timerStates from '../components/timerStates'
 import TimerDisplay from '../components/TimerDisplay'
-import Sound from '../components/Sound'
+// import Sound from '../components/Sound'
 import TimerIcons from '../components/TimerIcons'
 import TimerFocusTask from '../components/TimerFocusTask'
 
 class Timer extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
-      currentTime: moment.duration(25, 'minutes'),
-      baseTime: moment.duration(25, 'minutes'),
+      currentTime: moment.duration(Number(this.props.interval), 'minutes'),
+      baseTime: moment.duration(Number(this.props.interval), 'minutes'),
       timerState: timerStates.NOT_SET,
       timer: null,
+      interval: Number(this.props.interval),
     }
+
+    // const [currentTime, setCurrentTime] = useState(
+    //   moment.duration(25, 'minutes')
+    // )
 
     this.setBaseTime = this.setBaseTime.bind(this)
     this.startTimer = this.startTimer.bind(this)
@@ -85,7 +90,7 @@ class Timer extends Component {
           <button onClick={this.stopTimer}>Stop</button>
         </div>
         <TimerIcons />
-        <Sound soundOn={this.state.timerState === timerStates.RUNNING} />
+        {/* <Sound soundOn={this.state.timerState === timerStates.RUNNING} /> */}
       </TimerStyled>
     )
   }

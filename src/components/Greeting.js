@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function Greeting() {
+export default function Greeting({ name }) {
   const profilePicture = require('../images/men-working.jpg')
   return (
     <GreetingStyled>
       <h2>
         Hello <br />
-        Timo!
+        {name}
       </h2>
       <img
         src={profilePicture}

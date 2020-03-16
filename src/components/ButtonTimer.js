@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
-export default function ButtonTimer() {
-  return <LinkStyled to="/timer">25</LinkStyled>
+export default function ButtonTimer({ interval }) {
+  return <LinkStyled to="/timer">{interval}</LinkStyled>
 }
 
 const LinkStyled = styled(Link)`

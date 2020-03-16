@@ -8,7 +8,6 @@ export default function Form({ onSubmit }) {
     <FormStyled onSubmit={handleSubmit}>
       <input
         type="text"
-
         name="todo-input"
         placeholder="What are your tasks for today?"
         value={todoText}

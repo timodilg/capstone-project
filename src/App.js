@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Todo from './pages/Todo'
@@ -7,18 +7,25 @@ import Settings from './pages/Settings'
 import Navigation from './Navigation'
 
 export default function App() {
+  const [name, setName] = useState('')
+  const [interval, setInterval] = useState('25')
   return (
     <Router>
       <AppGrid>
         <Switch>
           <Route path="/todo">
-            <Todo />
+            <Todo name={name} interval={interval} />
           </Route>
           <Route path="/timer">
-            <Timer />
+            <Timer interval={interval} />
           </Route>
           <Route path="/settings">
-            <Settings />
+            <Settings
+              setName={setName}
+              name={name}
+              interval={interval}
+              setInterval={setInterval}
+            />
           </Route>
         </Switch>
         <Navigation />
