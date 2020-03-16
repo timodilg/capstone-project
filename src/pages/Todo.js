@@ -5,7 +5,7 @@ import Greeting from '../components/Greeting'
 import ButtonTimer from '../components/ButtonTimer'
 import styled from 'styled-components/macro'
 
-export default function Todo({ name }) {
+export default function Todo({ name, interval }) {
   const [todos, setTodos] = useState([])
 
   return (
@@ -13,7 +13,7 @@ export default function Todo({ name }) {
       <Greeting name={name} />
       <Form onSubmit={addTodo} />
       <List todos={todos} onDelete={deleteTodo} />
-      <ButtonTimer />
+      <ButtonTimer interval={interval} />
     </TodoStyled>
   )
 

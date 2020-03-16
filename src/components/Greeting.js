@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-// import NameForm from './NameForm'
 
 export default function Greeting({ name }) {
   const profilePicture = require('../images/men-working.jpg')

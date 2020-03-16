@@ -8,18 +8,24 @@ import Navigation from './Navigation'
 
 export default function App() {
   const [name, setName] = useState('')
+  const [interval, setInterval] = useState('25')
   return (
     <Router>
       <AppGrid>
         <Switch>
           <Route path="/todo">
-            <Todo name={name} />
+            <Todo name={name} interval={interval} />
           </Route>
           <Route path="/timer">
-            <Timer />
+            <Timer interval={interval} />
           </Route>
           <Route path="/settings">
-            <Settings setName={setName} name={name} />
+            <Settings
+              setName={setName}
+              name={name}
+              interval={interval}
+              setInterval={setInterval}
+            />
           </Route>
         </Switch>
         <Navigation />

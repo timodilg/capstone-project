@@ -1,17 +1,12 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import NameForm from '../components/NameForm'
 
-export default function Settings({ name, setName }) {
-  function handleSubmit(e) {
-    e.preventDefault()
-  }
-
+export default function Settings({ name, setName, interval, setInterval }) {
   return (
     <SettingsStyled>
       <h1>Settings</h1>
       <form onSubmit={handleSubmit}>
-        <p>Your name</p>
+        <p>Name</p>
         <input
           type="text"
           placeholder="Your name..."
@@ -20,9 +15,13 @@ export default function Settings({ name, setName }) {
         ></input>
       </form>
 
-      <form>
-        <p>Time intervall</p>
-        <input type="number" placeholder="25"></input>
+      <form onSubmit={handleSubmit}>
+        <p>Timer interval</p>
+        <input
+          type="number"
+          value={interval}
+          onChange={e => setInterval(e.target.value)}
+        ></input>
       </form>
 
       <form>
@@ -34,31 +33,36 @@ export default function Settings({ name, setName }) {
         <p>Long break</p>
         <input type="number" placeholder="30"></input>
       </form>
-      <NameForm />
     </SettingsStyled>
   )
+
+  function handleSubmit(e) {
+    e.preventDefault()
+  }
 }
 
 const SettingsStyled = styled.div`
-  display: grid;
-  grid-template-rows: 80px 80px 80px 80px;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 22px;
+  margin: 40px 20px;
   form {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
     margin-top: 20px;
+
+    p {
+      font-size: 20px;
+      margin-top: 0px;
+      margin-bottom: 5px;
+    }
 
     input {
       border: 1px solid black;
-      background-color: lightcoral;
+      border-radius: 5px;
       height: 44px;
       font-family: 'Josefin Sans', sans-serif;
       font-size: 22px;
       padding-left: 10px;
 
       ::placeholder {
-        /* display: flex; */
         justify-content: center;
       }
     }
