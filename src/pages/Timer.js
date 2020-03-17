@@ -82,19 +82,25 @@ class Timer extends Component {
 
   render() {
     return (
-      <TimerStyled>
-        <TimerFocusTask />
-        <TimerDisplay currentTime={this.state.currentTime} />
-        <div>
-          <button onClick={this.startTimer}>Start</button>
-          <button onClick={this.stopTimer}>Stop</button>
-        </div>
-        <TimerIcons />
-        {/* <Sound soundOn={this.state.timerState === timerStates.RUNNING} /> */}
-      </TimerStyled>
+      <TimerBackground>
+        <TimerStyled>
+          <TimerFocusTask />
+          <TimerDisplay currentTime={this.state.currentTime} />
+          <div>
+            <button onClick={this.startTimer}>Start</button>
+            <button onClick={this.stopTimer}>Stop</button>
+          </div>
+          <TimerIcons />
+          {/* <Sound soundOn={this.state.timerState === timerStates.RUNNING} /> */}
+        </TimerStyled>
+      </TimerBackground>
     )
   }
 }
+
+const TimerBackground = styled.div`
+  background: linear-gradient(to bottom, #66ffcc -6%, #ffffff 108%);
+`
 
 const TimerStyled = styled.div`
   margin: 40px auto;
