@@ -84,7 +84,9 @@ class Timer extends Component {
       <TimerBackground>
         <TimerStyled>
           <TimerFocusTask />
-          <TimerDisplay currentTime={this.state.currentTime} />
+          <section>
+            <TimerDisplay currentTime={this.state.currentTime} />
+          </section>
 
           <div>
             {this.state.timer ? null : (
@@ -106,21 +108,31 @@ class Timer extends Component {
 }
 
 const TimerBackground = styled.div`
-  background: linear-gradient(to bottom, #66ffcc -6%, #ffffff 108%);
+  background: linear-gradient(to bottom, #33cccc 0%, #009999 100%);
 `
 
 const TimerStyled = styled.div`
-  margin: 40px auto;
-  font-size: 20px;
+  margin: 0 auto;
   text-align: center;
   align-items: center;
   display: grid;
-  grid-template-rows: 20% 40% 20% 20%;
-  width: 300px;
+  grid-template-rows: 20% 40% 10% 30%;
+  /* width: 300px; */
+  height: 100vh;
+
+  section {
+    border: 6px dotted rgba(255, 255, 255, 0.5);
+    border-radius: 100%;
+    margin: auto;
+    height: 250px;
+    width: 250px;
+  }
 
   div {
     img {
-      height: 60px;
+      height: 80px;
+      padding-top: 40px;
+      color: white;
     }
   }
 `
