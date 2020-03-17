@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 
 export default function TimerIcons() {
   const soundOnIcon = require('../images/sound-on-white.svg')
-  const soundOffIcon = require('../images/sound-off-white.svg')
+  // const soundOffIcon = require('../images/sound-off-white.svg')
   const settingsIcon = require('../images/settings-white.svg')
   const todoIcon = require('../images/todolist-white-75.svg')
 
