@@ -41,31 +41,36 @@ const UlStyled = styled.ul`
     margin-top: 10px;
     border: 1px solid rgb(207, 207, 207);
     border-radius: 5px;
-    min-height: 40px;
-    display: flex;
-    align-items: center;
-    padding: 8px 15px;
+    display: grid;
+    grid-template-columns: 250px 50px;
+    padding: 15px;
 
-    span {
-      margin-left: 10px;
-    }
+    label {
+      display: grid;
+      grid-template-columns: 35px 220px;
 
-    div {
-      margin-left: auto;
+      span {
+        align-self: center;
+      }
 
-      img {
-        width: 25px;
+      input[type='checkbox'] {
+        justify-self: left;
+        align-self: center;
+      }
+
+      > input:checked + span {
+        text-decoration: line-through;
+        background-color: lightyellow;
       }
     }
 
-    /* input[type='checkbox'] {
-      transform: scale(1);
-    } */
+    div {
+      justify-self: center;
+      align-self: center;
 
-    > input:checked + span {
-      color: lightgray;
-      text-decoration: line-through;
-      background-color: rgb(258, 248, 248);
+      img {
+        width: 28px;
+      }
     }
   }
 `
