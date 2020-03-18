@@ -31,7 +31,7 @@ export default function Todo({ name, interval }) {
 // UID erstmal rausgenommen. Orientiert an BeispieL: https://codesandbox.io/s/start-delete-item-from-state-o2edo stattdessen mit Math.random eine ID generiert.
 
 const TodoStyled = styled.div`
-  margin: 40px auto;
+  margin: 40px 25px;
   font-size: 20px;
   display: grid;
   grid-template-rows: 33% 8% 49% 10%;

@@ -127,8 +127,8 @@ const TimerStyled = styled.div`
 
   div {
     img {
-      height: 80px;
-      padding-top: 40px;
+      height: 70px;
+      padding-top: 50px;
       color: white;
     }
   }

@@ -3,15 +3,15 @@
     <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
     <title>Group 5</title>
     <desc>Created with Sketch.</desc>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.752278646">
-        <g id="Group-5" transform="translate(-3.000000, -5.929035)" fill="#FFFFFF" stroke="#FFFFFF">
-            <g id="Group-4">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-5" transform="translate(-3.000000, -6.000000)" fill="#FFFFFF" stroke="#FFFFFF">
+            <g id="Group-4" opacity="0.933663504">
                 <path d="M32.2230278,28.8154124 C31.1051093,27.7873267 29.67631,27.3096957 28.2699689,27.3685658 C26.8636278,27.4274359 25.4797448,28.0228071 24.4516591,29.1407255 L-14.9211584,71.9538864 C-15.6849682,72.7844368 -16.1088795,73.8716297 -16.1088795,75 C-16.1088795,76.2426407 -15.6051999,77.3676407 -14.79086,78.1819805 C-13.9765202,78.9963203 -12.8515202,79.5 -11.6088795,79.5 L68.6088795,79.5 C69.7372498,79.5 70.8244427,79.0760887 71.6549932,78.3122789 C72.5696537,77.4711179 73.0567756,76.33885 73.104942,75.1882073 C73.1531085,74.0375645 72.7623195,72.8685469 71.9211584,71.9538864 L32.2230278,28.8154124 Z" id="Triangle" transform="translate(28.500000, 52.000000) rotate(-90.000000) translate(-28.500000, -52.000000) "></path>
                 <path d="M30,31.5 L8,31.5 C6.75735931,31.5 5.63235931,32.0036797 4.81801948,32.8180195 C4.00367966,33.6323593 3.5,34.7573593 3.5,36 L3.5,68 C3.5,69.2426407 4.00367966,70.3676407 4.81801948,71.1819805 C5.63235931,71.9963203 6.75735931,72.5 8,72.5 L34.5,72.5 L34.5,36 C34.5,34.7573593 33.9963203,33.6323593 33.1819805,32.8180195 C32.3676407,32.0036797 31.2426407,31.5 30,31.5 Z" id="Rectangle"></path>
             </g>
-            <rect id="Rectangle" transform="translate(74.000000, 22.929035) rotate(-21.000000) translate(-74.000000, -22.929035) " x="62.5" y="19.4290353" width="23" height="7"></rect>
-            <rect id="Rectangle" transform="translate(75.000000, 80.929035) rotate(21.000000) translate(-75.000000, -80.929035) " x="63.5" y="77.4290353" width="23" height="7"></rect>
-            <rect id="Rectangle" x="63.5" y="48.4290353" width="23" height="7"></rect>
+            <rect id="Rectangle" opacity="0.93" transform="translate(74.000000, 22.929035) rotate(-21.000000) translate(-74.000000, -22.929035) " x="62.5" y="19.4290353" width="23" height="7"></rect>
+            <rect id="Rectangle" opacity="0.93" transform="translate(75.000000, 80.929035) rotate(21.000000) translate(-75.000000, -80.929035) " x="63.5" y="77.4290353" width="23" height="7"></rect>
+            <rect id="Rectangle" opacity="0.93" x="63.5" y="48.4290353" width="23" height="7"></rect>
         </g>
     </g>
 </svg>

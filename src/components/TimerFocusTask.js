@@ -5,7 +5,7 @@ export default function TimerFocusTask() {
   return (
     <TimerFocusTaskStyled>
       <input type="checkbox" />
-      <span>Hemden bügeln</span>
+      <span>Rubber ducking 🐥</span>
     </TimerFocusTaskStyled>
   )
 }
