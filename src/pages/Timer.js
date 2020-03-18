@@ -7,7 +7,6 @@ import TimerDisplay from '../components/TimerDisplay'
 import TimerIcons from '../components/TimerIcons'
 import TimerFocusTask from '../components/TimerFocusTask'
 import play from '../images/play.svg'
-// import pause from '../images/pause.svg'
 import stop from '../images/stop.svg'
 
 class Timer extends Component {
@@ -92,8 +91,6 @@ class Timer extends Component {
             {this.state.timer ? null : (
               <img src={play} alt="play button" onClick={this.startTimer} />
             )}
-
-            {/* <img src={pause} height="50px" alt="pause button" /> */}
 
             {this.state.timer ? (
               <img src={stop} alt="stop button" onClick={this.stopTimer} />

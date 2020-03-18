@@ -11,7 +11,6 @@ export default function TimerFocusTask() {
 }
 
 const TimerFocusTaskStyled = styled.li`
-  /* border: 1px solid rgb(207, 207, 207); */
   border-radius: 5px;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
   height: 56px;
