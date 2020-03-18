@@ -17,7 +17,10 @@ const TimerDisplay = props => (
 )
 
 const TimerStyled = styled.div`
-  font-size: 3.5rem;
+  font-size: 2.5rem;
+  padding-top: 40px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
 `
 
 export default TimerDisplay

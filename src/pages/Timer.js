@@ -6,6 +6,8 @@ import TimerDisplay from '../components/TimerDisplay'
 // import Sound from '../components/Sound'
 import TimerIcons from '../components/TimerIcons'
 import TimerFocusTask from '../components/TimerFocusTask'
+import play from '../images/play.svg'
+import stop from '../images/stop.svg'
 
 class Timer extends Component {
   constructor(props) {
@@ -18,10 +20,6 @@ class Timer extends Component {
       timer: null,
       interval: Number(this.props.interval),
     }
-
-    // const [currentTime, setCurrentTime] = useState(
-    //   moment.duration(25, 'minutes')
-    // )
 
     this.setBaseTime = this.setBaseTime.bind(this)
     this.startTimer = this.startTimer.bind(this)
@@ -82,35 +80,57 @@ class Timer extends Component {
 
   render() {
     return (
-      <TimerStyled>
-        <TimerFocusTask />
-        <TimerDisplay currentTime={this.state.currentTime} />
-        <div>
-          <button onClick={this.startTimer}>Start</button>
-          <button onClick={this.stopTimer}>Stop</button>
-        </div>
-        <TimerIcons />
-        {/* <Sound soundOn={this.state.timerState === timerStates.RUNNING} /> */}
-      </TimerStyled>
+      <TimerBackground>
+        <TimerStyled>
+          <TimerFocusTask />
+          <section>
+            <TimerDisplay currentTime={this.state.currentTime} />
+          </section>
+
+          <div>
+            {this.state.timer ? null : (
+              <img src={play} alt="play button" onClick={this.startTimer} />
+            )}
+
+            {this.state.timer ? (
+              <img src={stop} alt="stop button" onClick={this.stopTimer} />
+            ) : null}
+          </div>
+          <TimerIcons />
+          {/* <Sound soundOn={this.state.timerState === timerStates.RUNNING} /> */}
+        </TimerStyled>
+      </TimerBackground>
     )
   }
 }
 
+const TimerBackground = styled.div`
+  background: linear-gradient(to bottom, #33cccc 0%, #009999 100%);
+`
+
 const TimerStyled = styled.div`
-  margin: 40px auto;
-  font-size: 20px;
+  margin: 0 auto;
   text-align: center;
   align-items: center;
   display: grid;
-  grid-template-rows: 20% 40% 20% 20%;
-  width: 300px;
+  grid-template-rows: 20% 40% 10% 30%;
+  /* width: 300px; */
+  height: 100vh;
 
-  button {
-    font-family: 'Josefin Sans', sans-serif;
-    width: 100px;
-    height: 50px;
-    background: #326f6f;
-    font-size: 1.5rem;
+  section {
+    border: 6px dotted rgba(255, 255, 255, 0.5);
+    border-radius: 100%;
+    margin: auto;
+    height: 250px;
+    width: 250px;
+  }
+
+  div {
+    img {
+      height: 80px;
+      padding-top: 40px;
+      color: white;
+    }
   }
 `
 

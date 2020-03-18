@@ -4,21 +4,26 @@ import styled from 'styled-components/macro'
 export default function TimerFocusTask() {
   return (
     <TimerFocusTaskStyled>
-      <span>
-        <strong>FOCUS:</strong> Hemden bügeln
-      </span>
+      <input type="checkbox" />
+      <span>Hemden bügeln</span>
     </TimerFocusTaskStyled>
   )
 }
 
 const TimerFocusTaskStyled = styled.li`
-  border: 1px solid rgb(207, 207, 207);
   border-radius: 5px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
   height: 56px;
-  line-height: 56px;
+  line-height: 60px;
   padding-left: 15px;
   list-style: none;
-  padding-right: 10px;
-  /* display: flex;
-  flex-grow: 1; */
+  background: white;
+  text-align: left;
+  font-size: 20px;
+  width: 280px;
+  margin: 0 auto;
+
+  span {
+    margin-left: 10px;
+  }
 `

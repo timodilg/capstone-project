@@ -4,16 +4,17 @@ import styled from 'styled-components/macro'
 import Todo from './pages/Todo'
 import Timer from './pages/Timer'
 import Settings from './pages/Settings'
-import Navigation from './Navigation'
+import GlobalStyle from './GlobalStyle'
 
 export default function App() {
   const [name, setName] = useState('')
   const [interval, setInterval] = useState('25')
   return (
     <Router>
+      <GlobalStyle />
       <AppGrid>
         <Switch>
-          <Route path="/todo">
+          <Route exact path={['/', '/todo']}>
             <Todo name={name} interval={interval} />
           </Route>
           <Route path="/timer">
@@ -28,7 +29,6 @@ export default function App() {
             />
           </Route>
         </Switch>
-        <Navigation />
       </AppGrid>
     </Router>
   )
@@ -36,10 +36,8 @@ export default function App() {
 
 const AppGrid = styled.div`
   display: grid;
-  grid-template-rows: auto 48px;
   margin: 0 auto;
-  max-width: 400px;
+  max-width: 100%;
   height: 100vh;
   font-family: 'Josefin Sans', sans-serif;
-}
 `
