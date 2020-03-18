@@ -9,16 +9,24 @@ import GlobalStyle from './GlobalStyle'
 export default function App() {
   const [name, setName] = useState('')
   const [interval, setInterval] = useState('25')
+  const [currentTodo, setCurrentTodo] = useState('')
+  const [todos, setTodos] = useState([])
   return (
     <Router>
       <GlobalStyle />
       <AppGrid>
         <Switch>
           <Route exact path={['/', '/todo']}>
-            <Todo name={name} interval={interval} />
+            <Todo
+              name={name}
+              todos={todos}
+              setTodos={setTodos}
+              interval={interval}
+              setCurrentTodo={setCurrentTodo}
+            />
           </Route>
           <Route path="/timer">
-            <Timer interval={interval} />
+            <Timer interval={interval} currentTodo={currentTodo} />
           </Route>
           <Route path="/settings">
             <Settings

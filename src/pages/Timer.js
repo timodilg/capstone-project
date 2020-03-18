@@ -19,6 +19,7 @@ class Timer extends Component {
       timerState: timerStates.NOT_SET,
       timer: null,
       interval: Number(this.props.interval),
+      currentTodo: String(this.props.currentTodo),
     }
 
     this.setBaseTime = this.setBaseTime.bind(this)
@@ -82,7 +83,7 @@ class Timer extends Component {
     return (
       <TimerBackground>
         <TimerStyled>
-          <TimerFocusTask />
+          <TimerFocusTask currentTodo={this.state.currentTodo} />
           <section>
             <TimerDisplay currentTime={this.state.currentTime} />
           </section>

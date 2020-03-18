@@ -1,18 +1,26 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Form from '../components/Form'
 import List from '../components/List'
 import Greeting from '../components/Greeting'
 import ButtonTimer from '../components/ButtonTimer'
 import styled from 'styled-components/macro'
 
-export default function Todo({ name, interval }) {
-  const [todos, setTodos] = useState([])
-
+export default function Todo({
+  name,
+  interval,
+  setCurrentTodo,
+  todos,
+  setTodos,
+}) {
   return (
     <TodoStyled>
       <Greeting name={name} />
       <Form onSubmit={addTodo} />
-      <List todos={todos} onDelete={deleteTodo} />
+      <List
+        todos={todos}
+        setCurrentTodo={setCurrentTodo}
+        onDelete={deleteTodo}
+      />
       <ButtonTimer interval={interval} />
     </TodoStyled>
   )

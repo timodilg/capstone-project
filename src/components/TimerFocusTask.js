@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function TimerFocusTask() {
+export default function TimerFocusTask({ currentTodo }) {
   return (
     <TimerFocusTaskStyled>
       <input type="checkbox" />
-      <span>Rubber ducking 🐥</span>
+      <span>{currentTodo}</span>
     </TimerFocusTaskStyled>
   )
 }
