@@ -20,8 +20,18 @@ export default function Greeting({ name }) {
 }
 
 const GreetingStyled = styled.div`
-  display: flex;
+  display: grid;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 28px;
+  font-size: 18px;
   color: #333233;
+  padding: 20px 40px 0 40px;
+  width: 280px;
+
+  h2 {
+    position: absolute;
+  }
+
+  img {
+    justify-self: end;
+  }
 `

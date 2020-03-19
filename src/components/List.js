@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
-export default function List({ todos, onDelete, setCurrentTodo }) {
+export default function List({ todos, onDelete, currentTodo, setCurrentTodo }) {
   const timerIcon = require('../images/todolist-timer-button.svg')
 
   function onToggle(todo) {
@@ -20,7 +20,7 @@ export default function List({ todos, onDelete, setCurrentTodo }) {
             <span>{todo.name}</span>
           </label>
           <div>
-            <Link to="/timer" onClick={setCurrentTodo(todo.name)}>
+            <Link to="/timer" onClick={() => setCurrentTodo(todo.id)}>
               <img src={timerIcon} alt="timer icon" />
             </Link>
           </div>
@@ -36,18 +36,19 @@ const UlStyled = styled.ul`
   font-family: 'Josefin Sans', sans-serif;
   height: 264px;
   overflow: auto;
+  justify-self: center;
 
   li {
     margin-top: 10px;
     border: 1px solid rgb(207, 207, 207);
     border-radius: 5px;
     display: grid;
-    grid-template-columns: 250px 50px;
+    grid-template-columns: 233px 50px;
     padding: 15px;
 
     label {
       display: grid;
-      grid-template-columns: 35px 220px;
+      grid-template-columns: 35px auto;
 
       span {
         align-self: center;
@@ -74,3 +75,5 @@ const UlStyled = styled.ul`
     }
   }
 `
+
+// { name: todo.name, done: false, id: todo.id }

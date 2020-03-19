@@ -1,13 +1,31 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function TimerFocusTask({ currentTodo }) {
-  return (
+export default function TimerFocusTask({
+  currentTodo,
+  setCurrentTodo,
+  todos,
+  setTodos,
+  deleteTodo,
+}) {
+  return currentTodo ? (
     <TimerFocusTaskStyled>
-      <input type="checkbox" />
-      <span>{currentTodo}</span>
+      <label onClick={onDelete(currentTodo.id)}>
+        <input type="checkbox" />
+        <span>{currentTodo.name}</span>
+      </label>
     </TimerFocusTaskStyled>
+  ) : (
+    <EmptySpace></EmptySpace>
   )
+
+  function onDelete(id) {
+    return () => {
+      deleteTodo(id)
+      setCurrentTodo('hi')
+      console.log(currentTodo)
+    }
+  }
 }
 
 const TimerFocusTaskStyled = styled.li`
@@ -23,7 +41,26 @@ const TimerFocusTaskStyled = styled.li`
   width: 280px;
   margin: 0 auto;
 
-  span {
-    margin-left: 10px;
+  label {
+    input[type='checkbox'] {
+      /* justify-self: left;
+        align-self: center; */
+    }
+
+    > input:checked + span {
+      text-decoration: line-through;
+      background-color: lightyellow;
+    }
+
+    span {
+      margin-left: 10px;
+    }
   }
 `
+
+const EmptySpace = styled.div`
+  height: 56px;
+`
+
+// onClick={onDelete(currentTodo)}
+// {() => deleteTodo(currentTodo.id)}

@@ -7,7 +7,7 @@ import Settings from './pages/Settings'
 import GlobalStyle from './GlobalStyle'
 
 export default function App() {
-  const [name, setName] = useState('')
+  const [name, setName] = useState('Stranger')
   const [interval, setInterval] = useState('25')
   const [currentTodo, setCurrentTodo] = useState('')
   const [todos, setTodos] = useState([])
@@ -22,11 +22,21 @@ export default function App() {
               todos={todos}
               setTodos={setTodos}
               interval={interval}
+              currentTodo={currentTodo}
               setCurrentTodo={setCurrentTodo}
+              addTodo={addTodo}
+              deleteTodo={deleteTodo}
             />
           </Route>
           <Route path="/timer">
-            <Timer interval={interval} currentTodo={currentTodo} />
+            <Timer
+              interval={interval}
+              currentTodo={todos.find(todo => todo.id === currentTodo)}
+              setCurrentTodo={setCurrentTodo}
+              todos={todos}
+              setTodos={setTodos}
+              deleteTodo={deleteTodo}
+            />
           </Route>
           <Route path="/settings">
             <Settings
@@ -40,6 +50,23 @@ export default function App() {
       </AppGrid>
     </Router>
   )
+
+  function addTodo(todo) {
+    setTodos([{ name: todo, done: false, id: 1 + Math.random() }, ...todos])
+    return true
+  }
+
+  function deleteTodo(id) {
+    const index = todos.findIndex(todo => todo.id === id)
+    setTodos([...todos.slice(0, index), ...todos.slice(index + 1)])
+  }
+
+  // function onDelete(currentTodo) {
+  //   const item = currentTodo
+  //   console.log(item)
+  //   const indexDelete = todos.find(item)
+  //   console.log(indexDelete)
+  // } findIndex currenttodo -> slice
 }
 
 const AppGrid = styled.div`
