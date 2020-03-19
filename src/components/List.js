@@ -34,17 +34,18 @@ const UlStyled = styled.ul`
   list-style: none;
   padding: 0;
   font-family: 'Josefin Sans', sans-serif;
-  height: 264px;
+  height: 254px;
   overflow: auto;
   justify-self: center;
+  margin-top: 0;
 
   li {
-    margin-top: 10px;
+    margin-top: 5px;
     border: 1px solid rgb(207, 207, 207);
     border-radius: 5px;
     display: grid;
     grid-template-columns: 233px 50px;
-    padding: 15px;
+    padding: 12px 15px;
 
     label {
       display: grid;

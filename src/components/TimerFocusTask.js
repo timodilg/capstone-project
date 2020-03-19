@@ -6,7 +6,8 @@ export default function TimerFocusTask({
   setCurrentTodo,
   todos,
   setTodos,
-  deleteTodo,
+  onDelete,
+  startTimer,
 }) {
   return currentTodo ? (
     <TimerFocusTaskStyled>
@@ -18,14 +19,6 @@ export default function TimerFocusTask({
   ) : (
     <EmptySpace></EmptySpace>
   )
-
-  function onDelete(id) {
-    return () => {
-      deleteTodo(id)
-      setCurrentTodo('hi')
-      console.log(currentTodo)
-    }
-  }
 }
 
 const TimerFocusTaskStyled = styled.li`

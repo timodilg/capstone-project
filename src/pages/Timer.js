@@ -24,6 +24,7 @@ class Timer extends Component {
       todos: this.props.todos,
       setTodos: this.props.setTodos,
       deleteTodo: this.props.deleteTodo,
+      onDelete: this.props.onDelete,
     }
 
     this.setBaseTime = this.setBaseTime.bind(this)
@@ -89,10 +90,12 @@ class Timer extends Component {
         <TimerStyled>
           <TimerFocusTask
             currentTodo={this.state.currentTodo}
-            setCurrentTodo={this.state.setCurrentTodo}
+            setCurrentTodo={this.props.setCurrentTodo}
             todos={this.state.todos}
             setTodos={this.state.setTodos}
             deleteTodo={this.props.deleteTodo}
+            onDelete={this.props.onDelete}
+            startTimer={this.props.startTimer}
           />
           <section>
             <TimerDisplay currentTime={this.state.currentTime} />

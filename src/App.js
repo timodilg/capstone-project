@@ -7,7 +7,7 @@ import Settings from './pages/Settings'
 import GlobalStyle from './GlobalStyle'
 
 export default function App() {
-  const [name, setName] = useState('Stranger')
+  const [name, setName] = useState('there')
   const [interval, setInterval] = useState('25')
   const [currentTodo, setCurrentTodo] = useState('')
   const [todos, setTodos] = useState([])
@@ -36,6 +36,7 @@ export default function App() {
               todos={todos}
               setTodos={setTodos}
               deleteTodo={deleteTodo}
+              onDelete={onDelete}
             />
           </Route>
           <Route path="/settings">
@@ -61,16 +62,17 @@ export default function App() {
     setTodos([...todos.slice(0, index), ...todos.slice(index + 1)])
   }
 
-  // function onDelete(currentTodo) {
-  //   const item = currentTodo
-  //   console.log(item)
-  //   const indexDelete = todos.find(item)
-  //   console.log(indexDelete)
-  // } findIndex currenttodo -> slice
+  function onDelete(id) {
+    return () => {
+      deleteTodo(id)
+      setCurrentTodo('')
+      console.log(currentTodo)
+    }
+  }
 }
 
 const AppGrid = styled.div`
-  display: grid;
+  /* display: grid; */
   margin: 0 auto;
   max-width: 100%;
   height: 100vh;

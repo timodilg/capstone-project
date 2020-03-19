@@ -39,6 +39,6 @@ const TodoStyled = styled.div`
   margin: 0 auto;
   font-size: 20px;
   display: grid;
-  grid-template-rows: 33% 8% 49% 10%;
+  grid-template-rows: auto auto auto auto;
   height: 100vh;
 `

@@ -5,16 +5,18 @@ export default function Form({ onSubmit }) {
   const [todoText, setTodoText] = useState('')
 
   return (
-    <FormStyled onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="todo-input"
-        placeholder="What are your tasks for today?"
-        value={todoText}
-        onChange={updateInputText}
-      />
-      <button> + </button>
-    </FormStyled>
+    <FormBackground>
+      <FormStyled onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="todo-input"
+          placeholder="What are your tasks for today?"
+          value={todoText}
+          onChange={updateInputText}
+        />
+        <button>+</button>
+      </FormStyled>
+    </FormBackground>
   )
 
   function updateInputText(event) {
@@ -33,11 +35,11 @@ export default function Form({ onSubmit }) {
 
 const FormStyled = styled.form`
   display: grid;
-  grid-template-columns: 275px 40px;
-  margin-top: 10px;
+  grid-template-columns: 275px auto;
   height: 58px;
   font-family: 'Josefin Sans', sans-serif;
   justify-self: center;
+  margin-top: 0px;
 
   input {
     font-size: 22px;
@@ -53,12 +55,15 @@ const FormStyled = styled.form`
   }
 
   button {
-    font-size: 2em;
     border: none;
     border-radius: 0 5px 5px 0;
-    background-color: #009999;
+    background-color: #3e3e3e;
     font-family: 'Josefin Sans', sans-serif;
     width: 40px;
     color: white;
   }
+`
+const FormBackground = styled.div`
+  background-color: #009999;
+  display: grid;
 `

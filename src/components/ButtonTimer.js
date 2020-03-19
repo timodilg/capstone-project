@@ -13,20 +13,22 @@ export default function ButtonTimer({ interval }) {
 const LinkStyled = styled(Link)`
   display: grid;
   align-self: start;
+  text-decoration-line: none;
+  height: 90px;
 
   div {
     margin: auto;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background-color: #009999;
     font-size: 2.5rem;
-    text-decoration-line: none;
     color: white;
     box-shadow: 1px 1px 3px lightslategray;
     font-family: 'Roboto', sans-serif;
     display: grid;
     justify-content: center;
     align-content: center;
+    margin-bottom: 50px;
   }
 `
