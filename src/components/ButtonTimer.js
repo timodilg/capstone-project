@@ -3,19 +3,32 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
 export default function ButtonTimer({ interval }) {
-  return <LinkStyled to="/timer">{interval}</LinkStyled>
+  return (
+    <LinkStyled to="/timer">
+      <div>{interval}</div>
+    </LinkStyled>
+  )
 }
 
 const LinkStyled = styled(Link)`
-  margin: 0 auto;
-  width: 100px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: #326f6f;
-  font-size: 4rem;
+  display: grid;
+  align-self: start;
   text-decoration-line: none;
-  color: white;
-  text-align: center;
-  padding-top: 20px;
-  box-shadow: 3px 2px 5px 0px #112626;
+  height: 90px;
+
+  div {
+    margin: auto;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #009999;
+    font-size: 2.5rem;
+    color: white;
+    box-shadow: 1px 1px 3px lightslategray;
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 50px;
+  }
 `

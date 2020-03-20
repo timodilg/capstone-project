@@ -1,7 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
-export default function List({ todos, onDelete }) {
+export default function List({ todos, onDelete, setCurrentTodo }) {
+  const timerIcon = require('../images/todolist-timer-button.svg')
+
   function onToggle(todo) {
     return () => {
       setTimeout(() => onDelete(todo.id), 1000)
@@ -11,12 +14,17 @@ export default function List({ todos, onDelete }) {
   return (
     <UlStyled>
       {todos.map(todo => (
-        <label onClick={onToggle(todo)}>
-          <li key={todo.id}>
+        <li key={todo.id}>
+          <label onClick={onToggle(todo)}>
             <input type="checkbox" />
             <span>{todo.name}</span>
-          </li>
-        </label>
+          </label>
+          <div>
+            <Link to="/timer" onClick={() => setCurrentTodo(todo.id)}>
+              <img src={timerIcon} alt="timer icon" />
+            </Link>
+          </div>
+        </li>
       ))}
     </UlStyled>
   )
@@ -25,33 +33,49 @@ export default function List({ todos, onDelete }) {
 const UlStyled = styled.ul`
   list-style: none;
   padding: 0;
-  font-family: 'Josefin Sans', sans-serif;
-  height: 264px;
+  height: 254px;
   overflow: auto;
-
-  /* align-content: flex-start; */
-  /* // Hier weitermachen: Die Liste der Todos soll scrollbar sein sodass das input feld und der 25 button immer sichtbar sind */
+  justify-self: center;
+  margin-top: 0;
 
   li {
-    margin-top: 10px;
+    margin-top: 5px;
     border: 1px solid rgb(207, 207, 207);
     border-radius: 5px;
-    height: 56px;
-    line-height: 56px;
-    padding-left: 15px;
+    display: grid;
+    grid-template-columns: 233px 50px;
+    padding: 12px 15px;
 
-    span {
-      margin-left: 10px;
+    label {
+      display: grid;
+      grid-template-columns: 35px auto;
+
+      span {
+        align-self: center;
+      }
+
+      input[type='checkbox'] {
+        justify-self: left;
+        align-self: center;
+      }
+
+      > input:checked + span {
+        text-decoration: line-through;
+        background-color: lightyellow;
+      }
     }
 
-    input[type='checkbox'] {
-      transform: scale(1);
-    }
+    div {
+      justify-self: center;
+      align-self: center;
+      display: grid;
+      align-content: center;
 
-    > input:checked + span {
-      color: lightgray;
-      text-decoration: line-through;
-      background-color: rgb(258, 248, 248);
+      img {
+        width: 28px;
+        align-self: center;
+        padding-top: 5px;
+      }
     }
   }
 `

@@ -19,6 +19,12 @@ class Timer extends Component {
       timerState: timerStates.NOT_SET,
       timer: null,
       interval: Number(this.props.interval),
+      currentTodo: this.props.currentTodo,
+      setCurrentTodo: this.props.setCurrentTodo,
+      todos: this.props.todos,
+      setTodos: this.props.setTodos,
+      deleteTodo: this.props.deleteTodo,
+      onDelete: this.props.onDelete,
     }
 
     this.setBaseTime = this.setBaseTime.bind(this)
@@ -82,7 +88,15 @@ class Timer extends Component {
     return (
       <TimerBackground>
         <TimerStyled>
-          <TimerFocusTask />
+          <TimerFocusTask
+            currentTodo={this.state.currentTodo}
+            setCurrentTodo={this.props.setCurrentTodo}
+            todos={this.state.todos}
+            setTodos={this.state.setTodos}
+            deleteTodo={this.props.deleteTodo}
+            onDelete={this.props.onDelete}
+            startTimer={this.props.startTimer}
+          />
           <section>
             <TimerDisplay currentTime={this.state.currentTime} />
           </section>
@@ -127,8 +141,8 @@ const TimerStyled = styled.div`
 
   div {
     img {
-      height: 80px;
-      padding-top: 40px;
+      height: 70px;
+      padding-top: 50px;
       color: white;
     }
   }

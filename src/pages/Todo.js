@@ -1,38 +1,44 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Form from '../components/Form'
 import List from '../components/List'
 import Greeting from '../components/Greeting'
 import ButtonTimer from '../components/ButtonTimer'
 import styled from 'styled-components/macro'
 
-export default function Todo({ name, interval }) {
-  const [todos, setTodos] = useState([])
-
+export default function Todo({
+  name,
+  interval,
+  currentTodo,
+  setCurrentTodo,
+  todos,
+  setTodos,
+  deleteTodo,
+  addTodo,
+}) {
+  console.log(currentTodo)
   return (
     <TodoStyled>
       <Greeting name={name} />
       <Form onSubmit={addTodo} />
-      <List todos={todos} onDelete={deleteTodo} />
+      <List
+        todos={todos}
+        currentTodo={currentTodo}
+        setCurrentTodo={setCurrentTodo}
+        onDelete={deleteTodo}
+      />
       <ButtonTimer interval={interval} />
     </TodoStyled>
   )
 
-  function addTodo(todo) {
-    setTodos([{ name: todo, done: false, id: 1 + Math.random() }, ...todos])
-    return true
-  }
-
-  function deleteTodo(id) {
-    const index = todos.findIndex(todo => todo.id === id)
-    setTodos([...todos.slice(0, index), ...todos.slice(index + 1)])
-  }
+  // alle functionen die den state verändern sollten in der app liegen
 }
 
 // UID erstmal rausgenommen. Orientiert an BeispieL: https://codesandbox.io/s/start-delete-item-from-state-o2edo stattdessen mit Math.random eine ID generiert.
 
 const TodoStyled = styled.div`
-  margin: 40px auto;
+  margin: 0 auto;
   font-size: 20px;
   display: grid;
-  grid-template-rows: 33% 8% 49% 10%;
+  grid-template-rows: auto auto auto auto;
+  height: 100vh;
 `
