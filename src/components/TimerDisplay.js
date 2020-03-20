@@ -1,20 +1,22 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-const leftZeroNumber = value => {
-  if (value < 10) return `0${value}`
+export default function TimerDisplay({ currentTime }) {
+  const leftZeroNumber = value => {
+    if (value < 10) return `0${value}`
 
-  return `${value}`
+    return `${value}`
+  }
+
+  return (
+    <TimerStyled>
+      <h2>
+        {leftZeroNumber(currentTime.get('minutes'))}:
+        {leftZeroNumber(currentTime.get('seconds'))}
+      </h2>
+    </TimerStyled>
+  )
 }
-
-const TimerDisplay = props => (
-  <TimerStyled>
-    <h2>
-      {leftZeroNumber(props.currentTime.get('minutes'))}:
-      {leftZeroNumber(props.currentTime.get('seconds'))}
-    </h2>
-  </TimerStyled>
-)
 
 const TimerStyled = styled.div`
   font-size: 2.5rem;
@@ -22,5 +24,3 @@ const TimerStyled = styled.div`
   color: white;
   font-family: 'Roboto', sans-serif;
 `
-
-export default TimerDisplay
