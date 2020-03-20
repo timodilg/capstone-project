@@ -37,16 +37,14 @@ const FormStyled = styled.form`
   display: grid;
   grid-template-columns: 275px auto;
   height: 58px;
-  font-family: 'Josefin Sans', sans-serif;
   justify-self: center;
   margin-top: 0px;
 
   input {
-    font-size: 22px;
+    font-size: 20px;
     border-radius: 5px 0 0 5px;
     border: 1px solid #f1f1f1;
     padding-left: 10px;
-    font-family: 'Josefin Sans', sans-serif;
     flex-grow: 1;
 
     ::placeholder {
@@ -58,9 +56,10 @@ const FormStyled = styled.form`
     border: none;
     border-radius: 0 5px 5px 0;
     background-color: #3e3e3e;
-    font-family: 'Josefin Sans', sans-serif;
     width: 40px;
     color: white;
+    font-size: 20px;
+    padding: 0px;
   }
 `
 const FormBackground = styled.div`

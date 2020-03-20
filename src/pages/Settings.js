@@ -38,7 +38,6 @@ export default function Settings({ name, setName, interval, setInterval }) {
 }
 
 const SettingsStyled = styled.div`
-  font-family: 'Josefin Sans', sans-serif;
   margin: 40px 20px;
 
   h1 {
@@ -59,7 +58,6 @@ const SettingsStyled = styled.div`
       border: 1px solid black;
       border-radius: 5px;
       height: 44px;
-      font-family: 'Josefin Sans', sans-serif;
       font-size: 22px;
       padding-left: 10px;
     }

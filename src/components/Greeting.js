@@ -18,7 +18,7 @@ export default function Greeting({ name }) {
 
 const GreetingStyled = styled.div`
   display: grid;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   color: #333233;
   margin: 20px 40px 0 40px;
@@ -28,8 +28,7 @@ const GreetingStyled = styled.div`
     position: absolute;
     margin-top: 50px;
     color: white;
-    font-family: 'Kalam', cursive;
-    line-height: 25px;
+    line-height: 29px;
   }
 
   img {

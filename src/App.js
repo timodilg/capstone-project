@@ -76,5 +76,5 @@ const AppGrid = styled.div`
   margin: 0 auto;
   max-width: 100%;
   height: 100vh;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Baloo 2', cursive;
 `

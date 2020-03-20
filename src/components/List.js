@@ -33,7 +33,6 @@ export default function List({ todos, onDelete, currentTodo, setCurrentTodo }) {
 const UlStyled = styled.ul`
   list-style: none;
   padding: 0;
-  font-family: 'Josefin Sans', sans-serif;
   height: 254px;
   overflow: auto;
   justify-self: center;
@@ -69,9 +68,13 @@ const UlStyled = styled.ul`
     div {
       justify-self: center;
       align-self: center;
+      display: grid;
+      align-content: center;
 
       img {
         width: 28px;
+        align-self: center;
+        padding-top: 5px;
       }
     }
   }
