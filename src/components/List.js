@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
-export default function List({ todos, onDelete, currentTodo, setCurrentTodo }) {
+export default function List({ todos, onDelete, setCurrentTodo }) {
   const timerIcon = require('../images/todolist-timer-button.svg')
 
   function onToggle(todo) {
@@ -79,5 +79,3 @@ const UlStyled = styled.ul`
     }
   }
 `
-
-// { name: todo.name, done: false, id: todo.id }

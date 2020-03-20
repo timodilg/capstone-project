@@ -72,7 +72,6 @@ export default function App() {
 }
 
 const AppGrid = styled.div`
-  /* display: grid; */
   margin: 0 auto;
   max-width: 100%;
   height: 100vh;
