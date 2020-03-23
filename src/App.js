@@ -63,11 +63,8 @@ export default function App() {
   }
 
   function onDelete(id) {
-    return () => {
-      deleteTodo(id)
-      setCurrentTodo('')
-      console.log(currentTodo)
-    }
+    deleteTodo(id)
+    setCurrentTodo('')
   }
 }
 

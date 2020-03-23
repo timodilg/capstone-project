@@ -2,9 +2,15 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 export default function TimerFocusTask({ currentTodo, onDelete }) {
+  function onToggle(id) {
+    return () => {
+      setTimeout(() => onDelete(id), 1000)
+    }
+  }
+
   return currentTodo ? (
     <TimerFocusTaskStyled>
-      <label onClick={onDelete(currentTodo.id)}>
+      <label onClick={onToggle(currentTodo.id)}>
         <input type="checkbox" />
         <span>{currentTodo.name}</span>
       </label>

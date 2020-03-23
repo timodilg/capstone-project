@@ -24,7 +24,7 @@ export default function Todo({
         todos={todos}
         currentTodo={currentTodo}
         setCurrentTodo={setCurrentTodo}
-        onDelete={deleteTodo}
+        deleteTodo={deleteTodo}
       />
       <ButtonTimer interval={interval} />
     </TodoStyled>
