@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
 export default function List({ todos, onDelete, setCurrentTodo }) {
-  const timerIcon = require('../images/todolist-timer-button.svg')
+  const timerIcon = require('../../images/todolist-timer-button.svg')
 
   function onToggle(todo) {
     return () => {
