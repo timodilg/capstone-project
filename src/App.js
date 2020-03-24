@@ -9,8 +9,10 @@ import GlobalStyle from './GlobalStyle'
 export default function App() {
   const [name, setName] = useState('there')
   const [interval, setInterval] = useState('25')
+  const [breakInterval, setBreakInterval] = useState('5')
   const [currentTodo, setCurrentTodo] = useState('')
   const [todos, setTodos] = useState([])
+
   return (
     <Router>
       <GlobalStyle />
@@ -31,6 +33,7 @@ export default function App() {
           <Route path="/timer">
             <Timer
               interval={interval}
+              breakInterval={breakInterval}
               currentTodo={todos.find(todo => todo.id === currentTodo)}
               setCurrentTodo={setCurrentTodo}
               todos={todos}
@@ -45,6 +48,8 @@ export default function App() {
               name={name}
               interval={interval}
               setInterval={setInterval}
+              breakInterval={breakInterval}
+              setBreakInterval={setBreakInterval}
             />
           </Route>
         </Switch>
@@ -63,11 +68,8 @@ export default function App() {
   }
 
   function onDelete(id) {
-    return () => {
-      deleteTodo(id)
-      setCurrentTodo('')
-      console.log(currentTodo)
-    }
+    deleteTodo(id)
+    setCurrentTodo('')
   }
 }
 

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
 export default function TimerIcons() {
-  const soundOnIcon = require('../images/sound-on-white-93.svg')
-  const settingsIcon = require('../images/settings-white-90.svg')
-  const todoIcon = require('../images/todolist-white-75.svg')
+  const soundOnIcon = require('../../images/sound-on-white-93.svg')
+  const settingsIcon = require('../../images/settings-white-90.svg')
+  const todoIcon = require('../../images/todolist-white-75.svg')
 
   return (
     <TimerIconsStyled>

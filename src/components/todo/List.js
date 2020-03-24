@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
-export default function List({ todos, onDelete, setCurrentTodo }) {
-  const timerIcon = require('../images/todolist-timer-button.svg')
+export default function List({ todos, deleteTodo, setCurrentTodo }) {
+  const timerIcon = require('../../images/todolist-timer-button.svg')
 
   function onToggle(todo) {
     return () => {
-      setTimeout(() => onDelete(todo.id), 1000)
+      setTimeout(() => deleteTodo(todo.id), 1000)
     }
   }
 

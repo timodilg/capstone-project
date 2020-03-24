@@ -1,11 +1,17 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import SettingsNav from '../components/SettingsNav'
+import { Link } from 'react-router-dom'
 
-export default function Settings({ name, setName, interval, setInterval }) {
+export default function Settings({
+  name,
+  setName,
+  interval,
+  setInterval,
+  breakInterval,
+  setBreakInterval,
+}) {
   return (
     <SettingsStyled>
-      <SettingsNav />
       <h1>Settings</h1>
       <form onSubmit={handleSubmit}>
         <p>Name</p>
@@ -23,12 +29,17 @@ export default function Settings({ name, setName, interval, setInterval }) {
           onChange={e => setInterval(e.target.value)}
         ></input>
 
-        <p>Short break</p>
-        <input type="number" placeholder="5"></input>
-
-        <p>Long break</p>
-        <input type="number" placeholder="30"></input>
+        <p>Break interval</p>
+        <input
+          type="number"
+          value={breakInterval}
+          onChange={e => setBreakInterval(e.target.value)}
+        ></input>
       </form>
+
+      <ButtonStyled to="/timer">
+        <button>Save</button>
+      </ButtonStyled>
     </SettingsStyled>
   )
 
@@ -38,11 +49,10 @@ export default function Settings({ name, setName, interval, setInterval }) {
 }
 
 const SettingsStyled = styled.div`
-  margin: 40px 20px;
-
-  h1 {
-    margin-top: 30px;
-  }
+  margin: 30px auto;
+  font-size: 20px;
+  height: 100vh;
+  width: 300px;
 
   form {
     display: grid;
@@ -61,5 +71,22 @@ const SettingsStyled = styled.div`
       font-size: 22px;
       padding-left: 10px;
     }
+  }
+`
+const ButtonStyled = styled(Link)`
+  display: grid;
+  align-self: start;
+  text-decoration-line: none;
+  height: 120px;
+
+  button {
+    width: 300px;
+    height: 48px;
+    background: #009999;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px lightgray;
+    margin: 40px auto;
+    color: white;
+    font-size: 1.5rem;
   }
 `

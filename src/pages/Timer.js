@@ -1,122 +1,152 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import moment from 'moment'
-import * as timerStates from '../components/timerStates'
-import TimerDisplay from '../components/TimerDisplay'
+import TimerDisplay from '../components/timer/TimerDisplay'
 // import Sound from '../components/Sound'
-import TimerIcons from '../components/TimerIcons'
-import TimerFocusTask from '../components/TimerFocusTask'
+import TimerIcons from '../components/timer/TimerIcons'
+import TimerFocusTask from '../components/timer/TimerFocusTask'
 import play from '../images/play.svg'
 import stop from '../images/stop.svg'
+import finish from '../images/finish.svg'
+import coffeeBreak from '../images/coffee-break.svg'
 
-class Timer extends Component {
-  constructor(props) {
-    super(props)
+export default function Timer({
+  interval,
+  breakInterval,
+  currentTodo,
+  setCurrentTodo,
+  todos,
+  setTodos,
+  deleteTodo,
+  onDelete,
+}) {
+  const NOT_SET = 0
+  const RUNNING = 1
+  const COMPLETE = 2
+  const BREAK_NOT_SET = 3
+  const BREAK_RUNNING = 4
+  const PAUSE = 5
 
-    this.state = {
-      currentTime: moment.duration(Number(this.props.interval), 'minutes'),
-      baseTime: moment.duration(Number(this.props.interval), 'minutes'),
-      timerState: timerStates.NOT_SET,
-      timer: null,
-      interval: Number(this.props.interval),
-      currentTodo: this.props.currentTodo,
-      setCurrentTodo: this.props.setCurrentTodo,
-      todos: this.props.todos,
-      setTodos: this.props.setTodos,
-      deleteTodo: this.props.deleteTodo,
-      onDelete: this.props.onDelete,
+  const [timerState, setTimerState] = useState(NOT_SET)
+
+  const [currentTime, setCurrentTime] = useState(
+    moment.duration(Number(interval), 'minutes')
+  )
+  const [currentBreakTime, setCurrentBreakTime] = useState(
+    moment.duration(Number(breakInterval), 'minutes')
+  )
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      reduceTimer()
+      console.log(timerState)
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [timerState, currentTime, currentBreakTime])
+
+  function startTimer() {
+    if (timerState === 0) {
+      setTimerState(RUNNING)
     }
-
-    this.setBaseTime = this.setBaseTime.bind(this)
-    this.startTimer = this.startTimer.bind(this)
-    this.stopTimer = this.stopTimer.bind(this)
-    this.reduceTimer = this.reduceTimer.bind(this)
-  }
-
-  setBaseTime(newBaseTime) {
-    this.setState({
-      baseTime: newBaseTime,
-      currentTime: newBaseTime,
-    })
-  }
-
-  startTimer() {
-    this.setState({
-      timerState: timerStates.RUNNING,
-      timer: setInterval(this.reduceTimer, 1000),
-    })
-  }
-
-  stopTimer() {
-    if (this.state.timer) {
-      clearInterval(this.state.timer)
+    if (timerState === 3) {
+      setTimerState(BREAK_RUNNING)
     }
-
-    this.setState({
-      timerState: timerStates.NOT_SET,
-      timer: null,
-      currentTime: moment.duration(this.state.baseTime),
-    })
   }
 
-  reduceTimer() {
-    const newTime = moment.duration(this.state.currentTime)
-    newTime.subtract(1, 'second')
-
-    this.setState({
-      currentTime: newTime,
-    })
+  function stopTimer() {
+    setTimerState(COMPLETE)
+    breakTimer()
   }
 
-  completeTimer() {
-    if (this.state.timer) {
-      clearInterval(this.state.timer)
+  function pauseTimer() {
+    setTimerState(PAUSE)
+  }
+
+  function resumeTimer() {
+    setTimerState(RUNNING)
+  }
+
+  function breakTimer() {
+    setTimerState(BREAK_NOT_SET)
+  }
+
+  function stopBreakTimer() {
+    setTimerState(NOT_SET)
+    setCurrentTime(moment.duration(Number(interval), 'minutes'))
+    setCurrentBreakTime(moment.duration(Number(breakInterval), 'minutes'))
+  }
+
+  function reduceTimer() {
+    if (timerState === 0 || timerState === 2 || timerState === 3) {
+      return
     }
-
-    this.setState({
-      timerState: timerStates.COMPLETE,
-      timer: null,
-    })
+    if (timerState === 1) {
+      const newTime = moment.duration(currentTime)
+      newTime.subtract(1, 'second')
+      newTime._milliseconds < 0 ? stopTimer() : setCurrentTime(newTime)
+    }
+    if (timerState === 4) {
+      const newBreakTime = moment.duration(currentBreakTime)
+      newBreakTime.subtract(1, 'second')
+      newBreakTime._milliseconds < 0
+        ? stopBreakTimer()
+        : setCurrentBreakTime(newBreakTime)
+    }
   }
 
-  // playAudio() {
-  //   const whitenoise = require('../sounds/whitenoise.mp3')
-  //   return <audio src={whitenoise} autoPlay />
-  // }
-
-  render() {
-    return (
-      <TimerBackground>
-        <TimerStyled>
-          <TimerFocusTask
-            currentTodo={this.state.currentTodo}
-            setCurrentTodo={this.props.setCurrentTodo}
-            todos={this.state.todos}
-            setTodos={this.state.setTodos}
-            deleteTodo={this.props.deleteTodo}
-            onDelete={this.props.onDelete}
-            startTimer={this.props.startTimer}
+  return (
+    <TimerBackground>
+      <TimerStyled>
+        <TimerFocusTask
+          currentTodo={currentTodo}
+          setCurrentTodo={setCurrentTodo}
+          todos={todos}
+          setTodos={setTodos}
+          deleteTodo={deleteTodo}
+          onDelete={onDelete}
+          startTimer={startTimer}
+        />
+        <section>
+          <TimerDisplay
+            currentTime={currentTime}
+            currentBreakTime={currentBreakTime}
+            timerState={timerState}
           />
-          <section>
-            <TimerDisplay currentTime={this.state.currentTime} />
-          </section>
+        </section>
 
-          <div>
-            {this.state.timer ? null : (
-              <img src={play} alt="play button" onClick={this.startTimer} />
-            )}
-
-            {this.state.timer ? (
-              <img src={stop} alt="stop button" onClick={this.stopTimer} />
-            ) : null}
-          </div>
-          <TimerIcons />
-          {/* <Sound soundOn={this.state.timerState === timerStates.RUNNING} /> */}
-        </TimerStyled>
-      </TimerBackground>
-    )
-  }
+        <div>
+          {timerState === 0 ? (
+            <img src={play} alt="play button" onClick={startTimer} />
+          ) : null}
+          {timerState === 1 ? (
+            <img src={stop} alt="stop button" onClick={pauseTimer} />
+          ) : null}
+          {timerState === 3 ? (
+            <>
+              <img src={coffeeBreak} alt="break button" onClick={startTimer} />
+            </>
+          ) : null}
+          {timerState === 4 ? (
+            <img src={stop} alt="stop button" onClick={stopBreakTimer} />
+          ) : null}
+          {timerState === 5 ? (
+            <>
+              <img src={play} alt="play button" onClick={resumeTimer} />
+              <img src={finish} alt="finish button" onClick={stopTimer} />
+            </>
+          ) : null}
+        </div>
+        <TimerIcons />
+        {/* <Sound soundOn={timerState === timerStates.RUNNING} /> */}
+      </TimerStyled>
+    </TimerBackground>
+  )
 }
+
+// playAudio() {
+//   const whitenoise = require('../sounds/whitenoise.mp3')
+//   return <audio src={whitenoise} autoPlay />
+// }
 
 const TimerBackground = styled.div`
   background: linear-gradient(to bottom, #33cccc 0%, #009999 100%);
@@ -141,11 +171,15 @@ const TimerStyled = styled.div`
 
   div {
     img {
-      height: 70px;
-      padding-top: 50px;
+      height: 60px;
+      padding: 50px 10px 0 10px;
       color: white;
+    }
+    button {
+      width: 100px;
+      height: 70px;
+      background: white;
+      margin-top: 50px;
     }
   }
 `
-
-export default Timer
