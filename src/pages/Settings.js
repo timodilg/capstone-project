@@ -2,7 +2,14 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import SettingsNav from '../components/SettingsNav'
 
-export default function Settings({ name, setName, interval, setInterval }) {
+export default function Settings({
+  name,
+  setName,
+  interval,
+  setInterval,
+  breakInterval,
+  setBreakInterval,
+}) {
   return (
     <SettingsStyled>
       <h1>Settings</h1>
@@ -23,10 +30,11 @@ export default function Settings({ name, setName, interval, setInterval }) {
         ></input>
 
         <p>Short break</p>
-        <input type="number" placeholder="5"></input>
-
-        <p>Long break</p>
-        <input type="number" placeholder="30"></input>
+        <input
+          type="number"
+          value={breakInterval}
+          onChange={e => setBreakInterval(e.target.value)}
+        ></input>
       </form>
       <SettingsNav />
     </SettingsStyled>
@@ -40,7 +48,7 @@ export default function Settings({ name, setName, interval, setInterval }) {
 const SettingsStyled = styled.div`
   margin: 30px auto;
   font-size: 20px;
-  display: grid;
+  /* display: grid; */
   /* grid-template-rows: auto auto auto auto; */
   height: 100vh;
   width: 300px;

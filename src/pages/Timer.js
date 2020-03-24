@@ -8,6 +8,7 @@ import TimerIcons from '../components/timer/TimerIcons'
 import TimerFocusTask from '../components/timer/TimerFocusTask'
 import play from '../images/play.svg'
 import stop from '../images/stop.svg'
+import finish from '../images/finish.svg'
 
 export default function Timer({
   interval,
@@ -24,12 +25,10 @@ export default function Timer({
   const COMPLETE = 2
   const BREAK_NOT_SET = 3
   const BREAK_RUNNING = 4
+  const PAUSE = 5
 
-  const [timer, setTimer] = useState(null)
+  // const [timer, setTimer] = useState(null)
   const [timerState, setTimerState] = useState(NOT_SET)
-  // useEffect(() => {
-  //   console.log(timerState)
-  // }, [timerState])
 
   const [currentTime, setCurrentTime] = useState(
     moment.duration(Number(interval), 'seconds')
@@ -57,9 +56,15 @@ export default function Timer({
 
   function stopTimer() {
     setTimerState(COMPLETE)
-    // setCurrentTime(moment.duration(Number(interval), 'seconds'))
-
     breakTimer()
+  }
+
+  function pauseTimer() {
+    setTimerState(PAUSE)
+  }
+
+  function resumeTimer() {
+    setTimerState(RUNNING)
   }
 
   function breakTimer() {
@@ -115,13 +120,19 @@ export default function Timer({
             <img src={play} alt="play button" onClick={startTimer} />
           ) : null}
           {timerState === 1 ? (
-            <img src={stop} alt="stop button" onClick={stopTimer} />
+            <img src={stop} alt="stop button" onClick={pauseTimer} />
           ) : null}
           {timerState === 3 ? (
             <button onClick={startTimer}>Pause starten</button>
           ) : null}
           {timerState === 4 ? (
             <button onClick={stopBreakTimer}>Pause beenden</button>
+          ) : null}
+          {timerState === 5 ? (
+            <>
+              <img src={play} alt="play button" onClick={resumeTimer} />
+              <img src={finish} alt="finish button" onClick={stopTimer} />
+            </>
           ) : null}
         </div>
         <TimerIcons />

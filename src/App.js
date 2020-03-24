@@ -48,6 +48,8 @@ export default function App() {
               name={name}
               interval={interval}
               setInterval={setInterval}
+              breakInterval={breakInterval}
+              setBreakInterval={setBreakInterval}
             />
           </Route>
         </Switch>

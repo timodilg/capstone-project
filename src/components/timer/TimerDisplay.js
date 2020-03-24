@@ -14,7 +14,10 @@ export default function TimerDisplay({
 
   return (
     <TimerStyled>
-      {timerState === 0 || timerState === 1 || timerState === 2 ? (
+      {timerState === 0 ||
+      timerState === 1 ||
+      timerState === 2 ||
+      timerState === 5 ? (
         <h2>
           {leftZeroNumber(currentTime.get('minutes'))}:
           {leftZeroNumber(currentTime.get('seconds'))}
