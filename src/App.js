@@ -8,9 +8,11 @@ import GlobalStyle from './GlobalStyle'
 
 export default function App() {
   const [name, setName] = useState('there')
-  const [interval, setInterval] = useState('25')
+  const [interval, setInterval] = useState('5')
+  const [breakInterval, setBreakInterval] = useState('10')
   const [currentTodo, setCurrentTodo] = useState('')
   const [todos, setTodos] = useState([])
+
   return (
     <Router>
       <GlobalStyle />
@@ -31,6 +33,7 @@ export default function App() {
           <Route path="/timer">
             <Timer
               interval={interval}
+              breakInterval={breakInterval}
               currentTodo={todos.find(todo => todo.id === currentTodo)}
               setCurrentTodo={setCurrentTodo}
               todos={todos}

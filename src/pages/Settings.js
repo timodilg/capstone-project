@@ -5,7 +5,6 @@ import SettingsNav from '../components/SettingsNav'
 export default function Settings({ name, setName, interval, setInterval }) {
   return (
     <SettingsStyled>
-      <SettingsNav />
       <h1>Settings</h1>
       <form onSubmit={handleSubmit}>
         <p>Name</p>
@@ -29,6 +28,7 @@ export default function Settings({ name, setName, interval, setInterval }) {
         <p>Long break</p>
         <input type="number" placeholder="30"></input>
       </form>
+      <SettingsNav />
     </SettingsStyled>
   )
 
@@ -38,10 +38,15 @@ export default function Settings({ name, setName, interval, setInterval }) {
 }
 
 const SettingsStyled = styled.div`
-  margin: 40px 20px;
+  margin: 30px auto;
+  font-size: 20px;
+  display: grid;
+  /* grid-template-rows: auto auto auto auto; */
+  height: 100vh;
+  width: 300px;
 
   h1 {
-    margin-top: 30px;
+    /* margin-top: 30px; */
   }
 
   form {

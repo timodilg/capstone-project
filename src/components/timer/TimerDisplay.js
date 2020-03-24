@@ -1,7 +1,11 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function TimerDisplay({ currentTime }) {
+export default function TimerDisplay({
+  currentTime,
+  currentBreakTime,
+  timerState,
+}) {
   const leftZeroNumber = value => {
     if (value < 10) return `0${value}`
 
@@ -10,10 +14,17 @@ export default function TimerDisplay({ currentTime }) {
 
   return (
     <TimerStyled>
-      <h2>
-        {leftZeroNumber(currentTime.get('minutes'))}:
-        {leftZeroNumber(currentTime.get('seconds'))}
-      </h2>
+      {timerState === 0 || timerState === 1 || timerState === 2 ? (
+        <h2>
+          {leftZeroNumber(currentTime.get('minutes'))}:
+          {leftZeroNumber(currentTime.get('seconds'))}
+        </h2>
+      ) : (
+        <h2>
+          {leftZeroNumber(currentBreakTime.get('minutes'))}:
+          {leftZeroNumber(currentBreakTime.get('seconds'))}
+        </h2>
+      )}
     </TimerStyled>
   )
 }

@@ -1,12 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components/macro'
 
 export default function SettingsNav() {
   const backIcon = require('../images/back.svg')
 
   return (
-    <Link to="/timer">
-      <img src={backIcon} alt="back to timer" width="20" />
-    </Link>
+    <ButtonStyled to="/timer">
+      <button>Save</button>
+    </ButtonStyled>
   )
 }
+
+const ButtonStyled = styled(Link)`
+  width: 300px;
+  background: #33cccc;
+  border-radius: 5px;
+  margin: 20px auto;
+`
