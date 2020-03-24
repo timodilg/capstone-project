@@ -9,6 +9,7 @@ import TimerFocusTask from '../components/timer/TimerFocusTask'
 import play from '../images/play.svg'
 import stop from '../images/stop.svg'
 import finish from '../images/finish.svg'
+import coffeeBreak from '../images/coffee-break.svg'
 
 export default function Timer({
   interval,
@@ -123,10 +124,13 @@ export default function Timer({
             <img src={stop} alt="stop button" onClick={pauseTimer} />
           ) : null}
           {timerState === 3 ? (
-            <button onClick={startTimer}>Pause starten</button>
+            <>
+              <img src={coffeeBreak} alt="break button" onClick={startTimer} />
+              {/* <h2>Take a break!</h2> */}
+            </>
           ) : null}
           {timerState === 4 ? (
-            <button onClick={stopBreakTimer}>Pause beenden</button>
+            <img src={stop} alt="stop button" onClick={stopBreakTimer} />
           ) : null}
           {timerState === 5 ? (
             <>
@@ -170,8 +174,8 @@ const TimerStyled = styled.div`
 
   div {
     img {
-      height: 70px;
-      padding-top: 50px;
+      height: 60px;
+      padding: 50px 10px 0 10px;
       color: white;
     }
     button {

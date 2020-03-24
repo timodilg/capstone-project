@@ -23,10 +23,13 @@ export default function TimerDisplay({
           {leftZeroNumber(currentTime.get('seconds'))}
         </h2>
       ) : (
-        <h2>
-          {leftZeroNumber(currentBreakTime.get('minutes'))}:
-          {leftZeroNumber(currentBreakTime.get('seconds'))}
-        </h2>
+        <>
+          <h2>
+            {leftZeroNumber(currentBreakTime.get('minutes'))}:
+            {leftZeroNumber(currentBreakTime.get('seconds'))}
+          </h2>
+          <p>Take a break!</p>
+        </>
       )}
     </TimerStyled>
   )
@@ -37,4 +40,11 @@ const TimerStyled = styled.div`
   padding-top: 40px;
   color: white;
   font-family: 'Roboto', sans-serif;
+
+  p {
+    font-size: 22px;
+    position: absolute;
+    left: 33%;
+    top: 44%;
+  }
 `
