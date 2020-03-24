@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import moment from 'moment'
-// import * as timerStates from '../components/timerStates'
 import TimerDisplay from '../components/timer/TimerDisplay'
 // import Sound from '../components/Sound'
 import TimerIcons from '../components/timer/TimerIcons'
@@ -28,7 +27,6 @@ export default function Timer({
   const BREAK_RUNNING = 4
   const PAUSE = 5
 
-  // const [timer, setTimer] = useState(null)
   const [timerState, setTimerState] = useState(NOT_SET)
 
   const [currentTime, setCurrentTime] = useState(
@@ -126,7 +124,6 @@ export default function Timer({
           {timerState === 3 ? (
             <>
               <img src={coffeeBreak} alt="break button" onClick={startTimer} />
-              {/* <h2>Take a break!</h2> */}
             </>
           ) : null}
           {timerState === 4 ? (
