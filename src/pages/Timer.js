@@ -30,10 +30,10 @@ export default function Timer({
   const [timerState, setTimerState] = useState(NOT_SET)
 
   const [currentTime, setCurrentTime] = useState(
-    moment.duration(Number(interval), 'seconds')
+    moment.duration(Number(interval), 'minutes')
   )
   const [currentBreakTime, setCurrentBreakTime] = useState(
-    moment.duration(Number(breakInterval), 'seconds')
+    moment.duration(Number(breakInterval), 'minutes')
   )
 
   useEffect(() => {
@@ -72,8 +72,8 @@ export default function Timer({
 
   function stopBreakTimer() {
     setTimerState(NOT_SET)
-    setCurrentTime(moment.duration(Number(interval), 'seconds'))
-    setCurrentBreakTime(moment.duration(Number(breakInterval), 'seconds'))
+    setCurrentTime(moment.duration(Number(interval), 'minutes'))
+    setCurrentBreakTime(moment.duration(Number(breakInterval), 'minutes'))
   }
 
   function reduceTimer() {

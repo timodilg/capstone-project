@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import SettingsNav from '../components/SettingsNav'
+import { Link } from 'react-router-dom'
 
 export default function Settings({
   name,
@@ -29,14 +29,17 @@ export default function Settings({
           onChange={e => setInterval(e.target.value)}
         ></input>
 
-        <p>Short break</p>
+        <p>Break interval</p>
         <input
           type="number"
           value={breakInterval}
           onChange={e => setBreakInterval(e.target.value)}
         ></input>
       </form>
-      <SettingsNav />
+
+      <ButtonStyled to="/timer">
+        <button>Save</button>
+      </ButtonStyled>
     </SettingsStyled>
   )
 
@@ -48,14 +51,8 @@ export default function Settings({
 const SettingsStyled = styled.div`
   margin: 30px auto;
   font-size: 20px;
-  /* display: grid; */
-  /* grid-template-rows: auto auto auto auto; */
   height: 100vh;
   width: 300px;
-
-  h1 {
-    /* margin-top: 30px; */
-  }
 
   form {
     display: grid;
@@ -74,5 +71,22 @@ const SettingsStyled = styled.div`
       font-size: 22px;
       padding-left: 10px;
     }
+  }
+`
+const ButtonStyled = styled(Link)`
+  display: grid;
+  align-self: start;
+  text-decoration-line: none;
+  height: 120px;
+
+  button {
+    width: 300px;
+    height: 48px;
+    background: #009999;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px lightgray;
+    margin: 40px auto;
+    color: white;
+    font-size: 1.5rem;
   }
 `
