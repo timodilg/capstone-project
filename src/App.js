@@ -8,7 +8,7 @@ import GlobalStyle from './GlobalStyle'
 
 export default function App() {
   const [name, setName] = useState('there')
-  const [interval, setInterval] = useState('10')
+  const [interval, setInterval] = useState('25')
   const [breakInterval, setBreakInterval] = useState('5')
   const [currentTodo, setCurrentTodo] = useState('')
   const [todos, setTodos] = useState([])
