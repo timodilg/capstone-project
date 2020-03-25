@@ -37,14 +37,19 @@ export default function TimerDisplay({
 
 const TimerStyled = styled.div`
   font-size: 2.5rem;
-  padding-top: 40px;
   color: white;
   font-family: 'Roboto', sans-serif;
+  height: 250px;
+  display: grid;
+  grid-template-rows: 30% 40% 15% 15%;
 
+  h2 {
+    align-self: center;
+    grid-row: 2;
+  }
   p {
     font-size: 22px;
-    position: absolute;
-    left: 33%;
-    top: 44%;
+    grid-row: 3;
+    align-self: center;
   }
 `

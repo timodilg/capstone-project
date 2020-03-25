@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import moment from 'moment'
 import TimerDisplay from '../components/timer/TimerDisplay'
-// import Sound from '../components/Sound'
+import Sound from '../components/Sound'
+import SoundTaskComplete from '../components/SoundTaskComplete'
 import TimerIcons from '../components/timer/TimerIcons'
 import TimerFocusTask from '../components/timer/TimerFocusTask'
 import play from '../images/play.svg'
@@ -27,6 +28,9 @@ export default function Timer({
   const BREAK_RUNNING = 4
   const PAUSE = 5
 
+  const LOUD = 7
+  const MUTE = 8
+
   const [timerState, setTimerState] = useState(NOT_SET)
 
   const [currentTime, setCurrentTime] = useState(
@@ -36,10 +40,11 @@ export default function Timer({
     moment.duration(Number(breakInterval), 'minutes')
   )
 
+  const [soundState, setSoundState] = useState(LOUD)
+
   useEffect(() => {
     const interval = setInterval(() => {
       reduceTimer()
-      console.log(timerState)
     }, 1000)
     return () => clearInterval(interval)
   }, [timerState, currentTime, currentBreakTime])
@@ -94,6 +99,14 @@ export default function Timer({
     }
   }
 
+  function muteSound() {
+    setSoundState(MUTE)
+  }
+
+  function unmuteSound() {
+    setSoundState(LOUD)
+  }
+
   return (
     <TimerBackground>
       <TimerStyled>
@@ -136,17 +149,17 @@ export default function Timer({
             </>
           ) : null}
         </div>
-        <TimerIcons />
-        {/* <Sound soundOn={timerState === timerStates.RUNNING} /> */}
+        <TimerIcons
+          muteSound={muteSound}
+          unmuteSound={unmuteSound}
+          soundState={soundState}
+        />
+        {timerState === 1 && soundState === 7 ? <Sound /> : null}
+        {timerState === 3 && soundState === 7 ? <SoundTaskComplete /> : null}
       </TimerStyled>
     </TimerBackground>
   )
 }
-
-// playAudio() {
-//   const whitenoise = require('../sounds/whitenoise.mp3')
-//   return <audio src={whitenoise} autoPlay />
-// }
 
 const TimerBackground = styled.div`
   background: linear-gradient(to bottom, #33cccc 0%, #009999 100%);
