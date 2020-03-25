@@ -3,6 +3,7 @@ import styled from 'styled-components/macro'
 import moment from 'moment'
 import TimerDisplay from '../components/timer/TimerDisplay'
 import Sound from '../components/Sound'
+import SoundTaskComplete from '../components/SoundTaskComplete'
 import TimerIcons from '../components/timer/TimerIcons'
 import TimerFocusTask from '../components/timer/TimerFocusTask'
 import play from '../images/play.svg'
@@ -33,10 +34,10 @@ export default function Timer({
   const [timerState, setTimerState] = useState(NOT_SET)
 
   const [currentTime, setCurrentTime] = useState(
-    moment.duration(Number(interval), 'minutes')
+    moment.duration(Number(interval), 'seconds')
   )
   const [currentBreakTime, setCurrentBreakTime] = useState(
-    moment.duration(Number(breakInterval), 'minutes')
+    moment.duration(Number(breakInterval), 'seconds')
   )
 
   const [soundState, setSoundState] = useState(LOUD)
@@ -76,7 +77,7 @@ export default function Timer({
 
   function stopBreakTimer() {
     setTimerState(NOT_SET)
-    setCurrentTime(moment.duration(Number(interval), 'minutes'))
+    setCurrentTime(moment.duration(Number(interval), 'seconds'))
     setCurrentBreakTime(moment.duration(Number(breakInterval), 'minutes'))
   }
 
@@ -154,15 +155,11 @@ export default function Timer({
           soundState={soundState}
         />
         {timerState === 1 && soundState === 7 ? <Sound /> : null}
+        {timerState === 3 && soundState === 7 ? <SoundTaskComplete /> : null}
       </TimerStyled>
     </TimerBackground>
   )
 }
-
-// playAudio() {
-//   const whitenoise = require('../sounds/whitenoise.mp3')
-//   return <audio src={whitenoise} autoPlay />
-// }
 
 const TimerBackground = styled.div`
   background: linear-gradient(to bottom, #33cccc 0%, #009999 100%);
