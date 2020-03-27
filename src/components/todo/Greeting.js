@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 export default function Greeting({ name }) {
-  const profilePicture = require('../../images/men-working-new.png')
+  const profilePicture = require('../../images/men-working.png')
   return (
     <GreetingStyledBackground>
       <GreetingStyled>
