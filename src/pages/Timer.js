@@ -129,23 +129,53 @@ export default function Timer({
 
         <div>
           {timerState === 0 ? (
-            <img src={play} alt="play button" onClick={startTimer} />
+            <img
+              src={play}
+              alt="play button"
+              name="playButton"
+              onClick={startTimer}
+            />
           ) : null}
           {timerState === 1 ? (
-            <img src={stop} alt="stop button" onClick={pauseTimer} />
+            <img
+              src={stop}
+              alt="stop button"
+              name="stopButton"
+              onClick={pauseTimer}
+            />
           ) : null}
           {timerState === 3 ? (
             <>
-              <img src={coffeeBreak} alt="break button" onClick={startTimer} />
+              <img
+                src={coffeeBreak}
+                alt="break button"
+                onClick={startTimer}
+                name="breakButton"
+              />
             </>
           ) : null}
           {timerState === 4 ? (
-            <img src={stop} alt="stop button" onClick={stopBreakTimer} />
+            <img
+              src={stop}
+              alt="stop button"
+              onClick={stopBreakTimer}
+              name="stopButton"
+            />
           ) : null}
           {timerState === 5 ? (
             <>
-              <img src={play} alt="play button" onClick={resumeTimer} />
-              <img src={finish} alt="finish button" onClick={stopTimer} />
+              <img
+                src={play}
+                alt="play button"
+                onClick={resumeTimer}
+                name="playButton"
+              />
+              <img
+                src={finish}
+                alt="finish button"
+                onClick={stopTimer}
+                name="finishButton"
+              />
             </>
           ) : null}
         </div>

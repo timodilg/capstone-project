@@ -12,7 +12,7 @@ export default function TimerFocusTask({ currentTodo, onDelete }) {
     <TimerFocusTaskStyled>
       <label onClick={onToggle(currentTodo.id)}>
         <input type="checkbox" />
-        <span>{currentTodo.name}</span>
+        <span name="focusTask">{currentTodo.name}</span>
       </label>
     </TimerFocusTaskStyled>
   ) : (

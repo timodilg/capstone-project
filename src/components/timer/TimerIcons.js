@@ -11,16 +11,26 @@ export default function TimerIcons({ muteSound, unmuteSound, soundState }) {
   return (
     <TimerIconsStyled>
       <Link to="/todo">
-        <img src={todoIcon} alt="todolist" />
+        <img src={todoIcon} alt="todolist" name="todoIcon" />
       </Link>
       {soundState === 7 ? (
-        <img src={soundOnIcon} alt="sound on" onClick={muteSound} />
+        <img
+          src={soundOnIcon}
+          alt="sound on"
+          name="soundOnIcon"
+          onClick={muteSound}
+        />
       ) : (
-        <img src={soundOffIcon} alt="sound off" onClick={unmuteSound} />
+        <img
+          src={soundOffIcon}
+          alt="sound off"
+          name="soundOffIcon"
+          onClick={unmuteSound}
+        />
       )}
 
       <Link to="/settings">
-        <img src={settingsIcon} alt="settings" />
+        <img src={settingsIcon} alt="settings" name="settingsIcon" />
       </Link>
     </TimerIconsStyled>
   )
