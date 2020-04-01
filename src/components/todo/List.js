@@ -5,12 +5,6 @@ import styled from 'styled-components/macro'
 export default function List({ todos, deleteTodo, setCurrentTodo }) {
   const timerIcon = require('../../images/todolist-timer-button.svg')
 
-  function onToggle(todo) {
-    return () => {
-      setTimeout(() => deleteTodo(todo.id), 1000)
-    }
-  }
-
   return (
     <UlStyled>
       {todos.map(todo => (
@@ -28,6 +22,12 @@ export default function List({ todos, deleteTodo, setCurrentTodo }) {
       ))}
     </UlStyled>
   )
+
+  function onToggle(todo) {
+    return () => {
+      setTimeout(() => deleteTodo(todo.id), 1000)
+    }
+  }
 }
 
 const UlStyled = styled.ul`

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import moment from 'moment'
 import TimerDisplay from '../components/timer/TimerDisplay'
-import Sound from '../components/Sound'
-import SoundTaskComplete from '../components/SoundTaskComplete'
+import Sound from '../components/sound/Sound'
+import SoundTaskComplete from '../components/sound/SoundTaskComplete'
 import TimerIcons from '../components/timer/TimerIcons'
 import TimerFocusTask from '../components/timer/TimerFocusTask'
 import play from '../images/play.svg'
@@ -70,64 +70,38 @@ export default function Timer({
         </section>
 
         <div>
-          {timerState === 0 ? (
-            <img
-              src={play}
-              alt="play button"
-              name="playButton"
-              onClick={startTimer}
-            />
-          ) : null}
-          {timerState === 1 ? (
-            <img
-              src={stop}
-              alt="stop button"
-              name="stopButton"
-              onClick={pauseTimer}
-            />
-          ) : null}
-          {timerState === 3 ? (
+    
+          {timerState === 0 && (
+            <img src={play} alt="play button" name="playButton" onClick={startTimer} />
+          )}
+          {timerState === 1 && (
+            <img src={stop} alt="stop button"  name="stopButton" onClick={pauseTimer} />
+          )}
+          {timerState === 3 && (
             <>
-              <img
-                src={coffeeBreak}
-                alt="break button"
-                onClick={startTimer}
-                name="breakButton"
-              />
+              <img src={coffeeBreak} alt="break button" name="breakButton" onClick={startTimer} />
             </>
-          ) : null}
-          {timerState === 4 ? (
-            <img
-              src={stop}
-              alt="stop button"
-              onClick={stopBreakTimer}
-              name="stopButton"
-            />
-          ) : null}
-          {timerState === 5 ? (
+          )}
+          {timerState === 4 && (
+            <img src={stop} alt="stop button" name="stopButton" onClick={stopBreakTimer} />
+          )}
+          {timerState === 5 && (
             <>
-              <img
-                src={play}
-                alt="play button"
-                onClick={resumeTimer}
-                name="playButton"
-              />
-              <img
-                src={finish}
-                alt="finish button"
-                onClick={stopTimer}
-                name="finishButton"
-              />
+              <img src={play} alt="play button" name="playButton" onClick={resumeTimer} />
+              <img src={finish} alt="finish button" name="finishButton" onClick={stopTimer} />
             </>
-          ) : null}
+          )}
+
         </div>
         <TimerIcons
           muteSound={muteSound}
           unmuteSound={unmuteSound}
           soundState={soundState}
         />
-        {timerState === 1 && soundState === 7 ? <Sound /> : null}
-        {timerState === 3 && soundState === 7 ? <SoundTaskComplete /> : null}
+
+        {timerState === 1 && soundState === 7 && <Sound />}
+        {timerState === 3 && soundState === 7 && <SoundTaskComplete />}
+
       </TimerStyled>
     </TimerBackground>
   )

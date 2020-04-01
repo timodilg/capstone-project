@@ -15,7 +15,6 @@ export default function Todo({
   deleteTodo,
   addTodo,
 }) {
-  console.log(currentTodo)
   return (
     <TodoStyled>
       <Greeting name={name} />

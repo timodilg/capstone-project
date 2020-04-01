@@ -2,12 +2,6 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 export default function TimerFocusTask({ currentTodo, onDelete }) {
-  function onToggle(id) {
-    return () => {
-      setTimeout(() => onDelete(id), 1000)
-    }
-  }
-
   return currentTodo ? (
     <TimerFocusTaskStyled>
       <label onClick={onToggle(currentTodo.id)}>
@@ -18,6 +12,12 @@ export default function TimerFocusTask({ currentTodo, onDelete }) {
   ) : (
     <EmptySpace></EmptySpace>
   )
+
+  function onToggle(id) {
+    return () => {
+      setTimeout(() => onDelete(id), 1000)
+    }
+  }
 }
 
 const TimerFocusTaskStyled = styled.li`
