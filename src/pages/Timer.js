@@ -49,64 +49,6 @@ export default function Timer({
     return () => clearInterval(interval)
   }, [timerState, currentTime, currentBreakTime])
 
-  function startTimer() {
-    if (timerState === 0) {
-      setTimerState(RUNNING)
-    }
-    if (timerState === 3) {
-      setTimerState(BREAK_RUNNING)
-    }
-  }
-
-  function stopTimer() {
-    setTimerState(COMPLETE)
-    breakTimer()
-  }
-
-  function pauseTimer() {
-    setTimerState(PAUSE)
-  }
-
-  function resumeTimer() {
-    setTimerState(RUNNING)
-  }
-
-  function breakTimer() {
-    setTimerState(BREAK_NOT_SET)
-  }
-
-  function stopBreakTimer() {
-    setTimerState(NOT_SET)
-    setCurrentTime(moment.duration(Number(interval), 'minutes'))
-    setCurrentBreakTime(moment.duration(Number(breakInterval), 'minutes'))
-  }
-
-  function reduceTimer() {
-    if (timerState === 0 || timerState === 2 || timerState === 3) {
-      return
-    }
-    if (timerState === 1) {
-      const newTime = moment.duration(currentTime)
-      newTime.subtract(1, 'second')
-      newTime._milliseconds < 0 ? stopTimer() : setCurrentTime(newTime)
-    }
-    if (timerState === 4) {
-      const newBreakTime = moment.duration(currentBreakTime)
-      newBreakTime.subtract(1, 'second')
-      newBreakTime._milliseconds < 0
-        ? stopBreakTimer()
-        : setCurrentBreakTime(newBreakTime)
-    }
-  }
-
-  function muteSound() {
-    setSoundState(MUTE)
-  }
-
-  function unmuteSound() {
-    setSoundState(LOUD)
-  }
-
   return (
     <TimerBackground>
       <TimerStyled>
@@ -189,6 +131,64 @@ export default function Timer({
       </TimerStyled>
     </TimerBackground>
   )
+
+  function startTimer() {
+    if (timerState === 0) {
+      setTimerState(RUNNING)
+    }
+    if (timerState === 3) {
+      setTimerState(BREAK_RUNNING)
+    }
+  }
+
+  function stopTimer() {
+    setTimerState(COMPLETE)
+    breakTimer()
+  }
+
+  function pauseTimer() {
+    setTimerState(PAUSE)
+  }
+
+  function resumeTimer() {
+    setTimerState(RUNNING)
+  }
+
+  function breakTimer() {
+    setTimerState(BREAK_NOT_SET)
+  }
+
+  function stopBreakTimer() {
+    setTimerState(NOT_SET)
+    setCurrentTime(moment.duration(Number(interval), 'minutes'))
+    setCurrentBreakTime(moment.duration(Number(breakInterval), 'minutes'))
+  }
+
+  function reduceTimer() {
+    if (timerState === 0 || timerState === 2 || timerState === 3) {
+      return
+    }
+    if (timerState === 1) {
+      const newTime = moment.duration(currentTime)
+      newTime.subtract(1, 'second')
+      newTime._milliseconds < 0 ? stopTimer() : setCurrentTime(newTime)
+    }
+    if (timerState === 4) {
+      const newBreakTime = moment.duration(currentBreakTime)
+      newBreakTime.subtract(1, 'second')
+      newBreakTime._milliseconds < 0
+        ? stopBreakTimer()
+        : setCurrentBreakTime(newBreakTime)
+    }
+  }
+
+  function muteSound() {
+    setSoundState(MUTE)
+  }
+
+  function unmuteSound() {
+    setSoundState(LOUD)
+  }
 }
 
 const TimerBackground = styled.div`
@@ -201,7 +201,6 @@ const TimerStyled = styled.div`
   align-items: center;
   display: grid;
   grid-template-rows: 20% 40% 10% 30%;
-  /* width: 300px; */
   height: 100vh;
 
   section {
