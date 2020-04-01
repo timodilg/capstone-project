@@ -15,7 +15,7 @@ export default function List({ todos, deleteTodo, setCurrentTodo }) {
           </label>
           <div>
             <Link to="/timer" onClick={() => setCurrentTodo(todo.id)}>
-              <img src={timerIcon} alt="timer icon" />
+              <img src={timerIcon} alt="timer icon" name="timerIcon" />
             </Link>
           </div>
         </li>

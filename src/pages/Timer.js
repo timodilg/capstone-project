@@ -70,34 +70,38 @@ export default function Timer({
         </section>
 
         <div>
+    
           {timerState === 0 && (
-            <img src={play} alt="play button" onClick={startTimer} />
+            <img src={play} alt="play button" name="playButton" onClick={startTimer} />
           )}
           {timerState === 1 && (
-            <img src={stop} alt="stop button" onClick={pauseTimer} />
+            <img src={stop} alt="stop button"  name="stopButton" onClick={pauseTimer} />
           )}
           {timerState === 3 && (
             <>
-              <img src={coffeeBreak} alt="break button" onClick={startTimer} />
+              <img src={coffeeBreak} alt="break button" name="breakButton" onClick={startTimer} />
             </>
           )}
           {timerState === 4 && (
-            <img src={stop} alt="stop button" onClick={stopBreakTimer} />
+            <img src={stop} alt="stop button" name="stopButton" onClick={stopBreakTimer} />
           )}
           {timerState === 5 && (
             <>
-              <img src={play} alt="play button" onClick={resumeTimer} />
-              <img src={finish} alt="finish button" onClick={stopTimer} />
+              <img src={play} alt="play button" name="playButton" onClick={resumeTimer} />
+              <img src={finish} alt="finish button" name="finishButton" onClick={stopTimer} />
             </>
           )}
+
         </div>
         <TimerIcons
           muteSound={muteSound}
           unmuteSound={unmuteSound}
           soundState={soundState}
         />
+
         {timerState === 1 && soundState === 7 && <Sound />}
         {timerState === 3 && soundState === 7 && <SoundTaskComplete />}
+
       </TimerStyled>
     </TimerBackground>
   )

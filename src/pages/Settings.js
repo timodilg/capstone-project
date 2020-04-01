@@ -19,6 +19,7 @@ export default function Settings({
           type="text"
           placeholder="Your name..."
           value={name}
+          name="changeName"
           onChange={e => setName(e.target.value)}
         ></input>
 
@@ -26,6 +27,7 @@ export default function Settings({
         <input
           type="number"
           value={interval}
+          name="changeInterval"
           onChange={e => setInterval(e.target.value)}
         ></input>
 
@@ -33,6 +35,7 @@ export default function Settings({
         <input
           type="number"
           value={breakInterval}
+          name="changeBreak"
           onChange={e => setBreakInterval(e.target.value)}
         ></input>
       </form>

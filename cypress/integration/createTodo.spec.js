@@ -13,7 +13,7 @@ describe('Create a todo', () => {
 
   it('renders the todo correctly', () => {
     cy.get(
-      'ul[class^="List__UlStyled-sc-98igzc-0 btfBcg"] > label > li > span'
+      'ul[class^="List__UlStyled-sc-7bv59l-0 cgncly"] > li > label > span'
     ).contains('Geschirr abwaschen')
   })
 })
