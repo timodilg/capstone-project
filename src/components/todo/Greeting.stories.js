@@ -3,7 +3,7 @@ import Greeting from './Greeting'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 
 export default {
-  title: 'Greeting',
+  title: 'Todo/Greeting',
   component: Greeting,
 }
 

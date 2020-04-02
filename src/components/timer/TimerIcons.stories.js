@@ -7,7 +7,7 @@ export default {
   component: TimerIcons,
 }
 
-export const stateData = 7
+const stateData = 7
 
 export const DefaultTimerIcons = ({ soundState }) => {
   return (

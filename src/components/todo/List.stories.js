@@ -3,7 +3,7 @@ import List from './List'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 
 export default {
-  title: 'List',
+  title: 'Todo/List',
   component: List,
 }
 

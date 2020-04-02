@@ -3,7 +3,7 @@ import TimerFocusTask from './TimerFocusTask'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 
 export default {
-  title: 'TimerFocusTask',
+  title: 'Timer/FocusTask',
   component: TimerFocusTask,
 }
 

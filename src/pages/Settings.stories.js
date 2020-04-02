@@ -1,16 +1,16 @@
 import React from 'react'
-import Form from './Form'
+import Settings from './Settings'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 
 export default {
-  title: 'Todo/Form',
-  component: Form,
+  title: 'Settings',
+  component: Settings,
 }
 
-export const DefaultForm = () => {
+export const SettingsPage = () => {
   return (
     <Router>
-      <Form />
+      <Settings />
     </Router>
   )
 }
